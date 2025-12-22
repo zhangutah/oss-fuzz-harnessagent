@@ -1,0 +1,263 @@
+2025-12-11 11:20:40,626 - INFO - Function: xmlParserErrors xmlInputSetEncodingHandler(xmlParserInput * input, xmlCharEncodingHandler * handler) (fuzzenv.py:141)
+2025-12-11 11:20:40,626 - INFO - Create a new project: run1_bawwbpvnirsumeom (fuzzenv.py:142)
+2025-12-11 11:20:43,659 - INFO - Build Image a new project: run1_bawwbpvnirsumeom, build res:True (fuzzenv.py:155)
+2025-12-11 11:21:05,446 - INFO - bear res: ['  adding: vid-8 (deflated 65%)', '  adding: vid-9 (deflated 66%)'] (code_retriever.py:59)
+2025-12-11 11:21:09,777 - INFO - Saved harness_fuzzer_pairs.json, content:{'regexp': '/src/libxml2/fuzz/regexp.c', 'uri': '/src/libxml2/fuzz/uri.c', 'html': '/src/libxml2/fuzz/html.c', 'xml': '/src/libxml2/fuzz/xml.c', 'reader': '/src/libxml2/fuzz/reader.c', 'valid': '/src/libxml2/fuzz/valid.c', 'xinclude': '/src/libxml2/fuzz/xinclude.c', 'api': '/src/libxml2/fuzz/api.c', 'xpath': '/src/libxml2/fuzz/xpath.c', 'schema': '/src/libxml2/fuzz/schema.c', 'lint': '/src/libxml2/fuzz/lint.c'} (fuzzenv.py:274)
+2025-12-11 11:21:10,804 - INFO - Using agent for header files (generation.py:138)
+2025-12-11 11:21:10,804 - INFO - Using project for example source (generation.py:290)
+2025-12-11 11:21:21,495 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for xmlInputSetEncodingHandler (code_retriever.py:226)
+2025-12-11 11:21:21,496 - INFO - Found 5 references for xmlInputSetEncodingHandler with lsp retriever (code_retriever.py:330)
+2025-12-11 11:21:23,671 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for xmlInputSetEncodingHandler (code_retriever.py:226)
+2025-12-11 11:21:23,671 - INFO - Found 4 references for xmlInputSetEncodingHandler with parser retriever (code_retriever.py:330)
+2025-12-11 11:21:23,672 - INFO - Using rank mode for example selection (generation.py:300)
+2025-12-11 11:22:21,197 - INFO - Found 4 usage in the project after removing harness. (generation.py:305)
+2025-12-11 11:22:21,197 - INFO - Use 1 examples. (generation.py:215)
+2025-12-11 11:22:33,973 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlInputSetEncodingHandler (code_retriever.py:226)
+2025-12-11 11:22:33,973 - INFO - Found 2 declaration for xmlInputSetEncodingHandler with lsp retriever (code_retriever.py:330)
+2025-12-11 11:22:45,682 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for xmlInputSetEncodingHandler (code_retriever.py:226)
+2025-12-11 11:22:45,682 - INFO - Found 2 definition for xmlInputSetEncodingHandler with mixed retriever (code_retriever.py:330)
+2025-12-11 11:22:45,682 - WARNING - Multiple definition found for xmlInputSetEncodingHandler, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:22:53,583 - INFO - Getting LSPFunction.Declaration for xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 11:22:53,583 - INFO - Found 1 declaration for xmlParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 11:22:56,210 - INFO - Getting LSPFunction.Declaration for _xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 11:22:56,210 - INFO - Found 2 declaration for _xmlParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 11:22:56,211 - WARNING - Multiple declaration found for _xmlParserInput, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:22:57,389 - WARNING - /**
+ * @file
+ * 
+ * @brief Validating XML 1.0 parser
+ * 
+ * Interfaces, constants and types related to the XML parser.
+ *
+ * @copyright See Copyright for the status of this software.
+ *
+ * @author Daniel Veillard
+ */
+
+#ifndef __XML_PARSER_H__
+#define __XML_PARSER_H__
+
+#include <libxml/xmlversion.h>
+/** @cond ignore */
+#define XML_TREE_INTERNALS
+/** @endcond */
+#include <libxml/tree.h>
+#undef XML_TREE_INTERNALS
+#include <libxml/dict.h>
+#include <libxml/hash.h>
+#include <libxml/valid.h>
+#include <libxml/entities.h>
+#include <libxml/xmlerror.h>
+#include <libxml/xmlstring.h>
+#include <libxml/xmlmemory.h>
+#include <libxml/encoding.h>
+#include <libxml/xmlIO.h>
+/* for compatibility */
+#include <libxml/SAX2.h>
+#include <libxml/threads.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * The default version of XML used: 1.0
+ */
+#define XML_DEFAULT_VERSION	"1.0"
+
+/**
+ * Status after parsing a document
+ */
+typedef enum {
+    /** not well-formed */
+    XML_STATUS_NOT_WELL_FORMED          = (1 << 0),
+    /** not namespace-well-formed */
+    XML_STATUS_NOT_NS_WELL_FORMED       = (1 << 1),
+    /** DTD validation failed */
+    XML_STATUS_DTD_VALIDATION_FAILED    = (1 << 2),
+    /** catastrophic failure like OOM or I/O error */
+    XML_STATUS_CATASTROPHIC_ERROR       = (1 << 3)
+} xmlParserStatus;
+
+/**
+ * Resource type for resource loaders
+ */
+typedef enum {
+    /** unknown */
+    XML_RESOURCE_UNKNOWN = 0,
+    /** main document */
+    XML_RESOURCE_MAIN_DOCUMENT,
+    /** external DTD */
+    XML_RESOURCE_DTD,
+    /** external general entity */
+    XML_RESOURCE_GENERAL_ENTITY,
+    /** external parameter entity */
+    XML_RESOURCE_PARAMETER_ENTITY,
+    /** XIncluded document */
+    XML_RESOURCE_XINCLUDE,
+    /** XIncluded text */
+    XML_RESOURCE_XINCLUDE_TEXT
+} xmlResourceType;
+
+/**
+ * Flags for parser input
+ */
+typedef enum {
+    /** The input buffer won't be changed during parsing. */
+    XML_INPUT_BUF_STATIC            = (1 << 1),
+    /** The input buffer is zero-terminated. (Note that the zero
+        byte shouldn't be included in buffer size.) */
+    XML_INPUT_BUF_ZERO_TERMINATED   = (1 << 2),
+    /** Uncompress gzipped file input */
+    XML_INPUT_UNZIP                 = (1 << 3),
+    /** Allow network access. Unused internally. */
+    XML_INPUT_NETWORK               = (1 << 4),
+    /** Allow system catalog to resolve URIs. */
+    XML_INPUT_USE_SYS_CATALOG       = (1 << 5)
+} xmlParserInputFlags;
+
+/* Deprecated */
+typedef void (* xmlParserInputDeallocate)(xmlChar *str);
+
+/**
+ * Parser input
+ */
+struct _xmlParserInput {
+    /* Input buffer */
+    xmlParserInputBuffer *buf XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * The filename or URI, if any
+     */
+    const char *filename;
+    /* unused */
+    const char *directory XML_DEPRECATED_MEMBER;
+    /* Base of the array to parse */
+    const xmlChar *base;
+    /**
+     * @deprecated Use #xmlCtxtGetInputWindow
+     *
+     * Current char being parsed
+     */
+    const xmlChar *cur;
+    /* end of the array to parse */
+    const xmlChar *end;
+    /* unused */
+    int length XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current line
+     */
+    int line;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current column
+     */
+    int col;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * How many xmlChars already consumed
+     */
+    unsigned long consumed;
+    /* function to deallocate the base */
+    xmlParserInputDeallocate free XML_DEPRECATED_MEMBER;
+    /* unused */
+    const xmlChar *encoding XML_DEPRECATED_MEMBER;
+    /* the version string for entity */
+    const xmlChar *version XML_DEPRECATED_MEMBER;
+    /* Flags */
+    int flags XML_DEPRECATED_MEMBER;
+    /* an unique identifier for the entity, unused internally */
+    int id XML_DEPRECATED_MEMBER;
+    /* unused */
+    unsigned long parentConsumed XML_DEPRECATED_MEMBER;
+    /* entity, if any */
+    xmlEntity *entity XML_DEPRECATED_MEMBER;
+};
+
+/** @cond ignore */
+
+typedef struct _xmlParserNodeInfo xmlParserNodeInfo;
+typedef xmlParserNodeInfo *xmlParserNodeInfoPtr;
+
+struct _xmlParserNodeInfo {
+  const struct _xmlNode* node;
+  /* Position & line # that text that created the node begins & ends on */
+  unsigned long begin_pos;
+  unsigned long begin_line;
+  unsigned long end_pos;
+  unsigned long end_line;
+};
+
+typedef struct _xmlParserNodeInfoSeq xmlParserNodeInfoSeq;
+typedef xmlParserNodeInfoSeq *xmlParserNodeInfoSeqPtr;
+struct _xmlParserNodeInfoSeq {
+  unsigned long maximum;
+  unsigned long length;
+  xmlParserNodeInfo* buffer;
+};
+
+/*
+ * Internal type
+ */
+typedef enum {
+    XML_PARSER_EOF = -1,	/* nothing is to be parsed */
+    XML_PARSER_START = 0,	/* nothing has been parsed */
+    XML_PARSER_MISC,		/* Misc* before int subset */
+    XML_PARSER_PI,		/* Within a processing instruction */
+    XML_PARSER_DTD,		/* within some DTD content */
+    XML_PARSER_PROLOG,		/* Misc* after internal subset */
+    XML_PARSER_COMMENT,		/* within a comment */
+    XML_PARSER_START_TAG,	/* within a start tag */
+    XML_PARSER_CONTENT,		/* within the content */
+    XML_PARSER_CDATA_SECTION,	/* within a CDATA section */
+    XML_PARSER_END_TAG,		/* within a closing tag */
+    XML_PARSER_ENTITY_DECL,	/* within an entity declaration */
+    XML_PARSER_ENTITY_VALUE,	/* within an entity value in a decl */
+    XML_PARSER_ATTRIBUTE_VALUE,	/* within an attribute value */
+    XML_PARSER_SYSTEM_LITERAL,	/* within a SYSTEM value */
+    XML_PARSER_EPILOG,		/* the Misc* after the last end tag */
+    XML_PARSER_IGNORE,		/* within an IGNORED section */
+    XML_PARSER_PUBLIC_LITERAL,	/* within a PUBLIC value */
+ (code_retriever.py:193)
+2025-12-11 11:23:04,333 - INFO - Getting LSPFunction.Declaration for xmlCharEncodingHandler from cache (code_retriever.py:346)
+2025-12-11 11:23:04,333 - INFO - Found 2 declaration for xmlCharEncodingHandler with mixed retriever (code_retriever.py:330)
+2025-12-11 11:23:05,280 - INFO - Getting LSPFunction.Declaration for _xmlCharEncodingHandler from cache (code_retriever.py:346)
+2025-12-11 11:23:05,281 - INFO - Found 2 declaration for _xmlCharEncodingHandler with mixed retriever (code_retriever.py:330)
+2025-12-11 11:23:05,281 - WARNING - Multiple declaration found for _xmlCharEncodingHandler, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:23:26,230 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlCreateCharEncodingHandler (code_retriever.py:226)
+2025-12-11 11:23:26,230 - INFO - Found 2 declaration for xmlCreateCharEncodingHandler with mixed retriever (code_retriever.py:330)
+2025-12-11 11:23:26,230 - WARNING - Multiple declaration found for xmlCreateCharEncodingHandler, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:24:03,175 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlFreeParserInput (code_retriever.py:226)
+2025-12-11 11:24:03,175 - WARNING - Retriever.LSP_code_retriever: no symbol found for xmlFreeParserInput (code_retriever.py:248)
+2025-12-11 11:24:03,633 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.Declaration for xmlFreeParserInput (code_retriever.py:226)
+2025-12-11 11:24:03,633 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.Declaration for xmlFreeParserInput (code_retriever.py:251)
+2025-12-11 11:24:03,633 - INFO - Found 0 declaration for xmlFreeParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 11:24:03,633 - WARNING - No declaration found for xmlFreeParserInput, please check the symbol name (code_retriever.py:458)
+2025-12-11 11:24:33,425 - INFO - Getting LSPFunction.Declaration for xmlFreeInputStream from cache (code_retriever.py:346)
+2025-12-11 11:24:33,425 - INFO - Found 2 declaration for xmlFreeInputStream with mixed retriever (code_retriever.py:330)
+2025-12-11 11:24:33,425 - WARNING - Multiple declaration found for xmlFreeInputStream, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:24:49,756 - INFO - Getting LSPFunction.Declaration for xmlParserInputBuffer from cache (code_retriever.py:346)
+2025-12-11 11:24:49,756 - INFO - Found 1 declaration for xmlParserInputBuffer with mixed retriever (code_retriever.py:330)
+2025-12-11 11:24:50,792 - INFO - Getting LSPFunction.Declaration for _xmlParserInputBuffer from cache (code_retriever.py:346)
+2025-12-11 11:24:50,792 - INFO - Found 2 declaration for _xmlParserInputBuffer with mixed retriever (code_retriever.py:330)
+2025-12-11 11:24:50,792 - WARNING - Multiple declaration found for _xmlParserInputBuffer, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:25:31,256 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for xmlCharEncCloseFunc (code_retriever.py:226)
+2025-12-11 11:25:31,258 - INFO - Found 21 references for xmlCharEncCloseFunc with mixed retriever (code_retriever.py:330)
+2025-12-11 11:25:49,235 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlCharEncCloseFunc (code_retriever.py:226)
+2025-12-11 11:25:49,235 - INFO - Found 2 declaration for xmlCharEncCloseFunc with mixed retriever (code_retriever.py:330)
+2025-12-11 11:25:49,235 - WARNING - Multiple declaration found for xmlCharEncCloseFunc, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:26:05,550 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlNewInputFromMemory (code_retriever.py:226)
+2025-12-11 11:26:05,550 - INFO - Found 2 declaration for xmlNewInputFromMemory with mixed retriever (code_retriever.py:330)
+2025-12-11 11:26:05,550 - WARNING - Multiple declaration found for xmlNewInputFromMemory, please check the symbol name (code_retriever.py:456)
+2025-12-11 11:27:00,428 - INFO - Generate Draft Code. (generator.py:72)
+2025-12-11 11:27:00,429 - INFO - Compile Start for draft_fix0 using regexp. (compilation.py:177)
+2025-12-11 11:27:26,788 - INFO - Compile End for draft_fix0 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 11:27:26,808 - INFO - Run 0th Fuzzer for run1_bawwbpvnirsumeom:regexp (validation.py:60)
+2025-12-11 11:28:36,885 - INFO - Fuzz res:No Error, [] for run1_bawwbpvnirsumeom:regexp (validation.py:62)
+2025-12-11 11:28:36,887 - INFO - Semantic check passed (generation.py:70)
+2025-12-11 11:28:47,754 - INFO - remove the docker image for run1_bawwbpvnirsumeom (fuzzenv.py:288)

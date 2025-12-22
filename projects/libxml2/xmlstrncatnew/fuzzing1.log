@@ -1,0 +1,104 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlstrncatnew/run1_lhzqalqoriizshwg/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_lhzqalqoriizshwg:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47252 inline 8-bit counters): 47252 [0x55be5003e578, 0x55be50049e0c), 
+INFO: Loaded 1 PC tables (47252 PCs): 47252 [0x55be50049e10,0x55be50102750), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 33Mb
+#122	INITED cov: 13 ft: 14 corp: 1/12b exec/s: 0 rss: 36Mb
+#123	REDUCE cov: 13 ft: 14 corp: 1/11b lim: 4096 exec/s: 0 rss: 36Mb L: 11/11 MS: 1 EraseBytes-
+#125	REDUCE cov: 17 ft: 18 corp: 2/33b lim: 4096 exec/s: 0 rss: 36Mb L: 22/22 MS: 2 CopyPart-CopyPart-
+#131	NEW    cov: 17 ft: 19 corp: 3/74b lim: 4096 exec/s: 0 rss: 36Mb L: 41/41 MS: 1 InsertRepeatedBytes-
+#132	NEW    cov: 17 ft: 20 corp: 4/89b lim: 4096 exec/s: 0 rss: 36Mb L: 15/41 MS: 1 EraseBytes-
+#149	REDUCE cov: 19 ft: 22 corp: 5/100b lim: 4096 exec/s: 0 rss: 36Mb L: 11/41 MS: 2 ShuffleBytes-ChangeBinInt-
+#151	NEW    cov: 23 ft: 26 corp: 6/108b lim: 4096 exec/s: 0 rss: 36Mb L: 8/41 MS: 2 ChangeBinInt-EraseBytes-
+#168	REDUCE cov: 23 ft: 26 corp: 6/100b lim: 4096 exec/s: 0 rss: 36Mb L: 33/33 MS: 2 ShuffleBytes-EraseBytes-
+#180	NEW    cov: 23 ft: 27 corp: 7/112b lim: 4096 exec/s: 0 rss: 36Mb L: 12/33 MS: 2 InsertByte-ShuffleBytes-
+#202	NEW    cov: 24 ft: 28 corp: 8/118b lim: 4096 exec/s: 0 rss: 36Mb L: 6/33 MS: 2 ChangeBit-EraseBytes-
+#203	REDUCE cov: 24 ft: 28 corp: 8/110b lim: 4096 exec/s: 0 rss: 36Mb L: 14/33 MS: 1 EraseBytes-
+#224	REDUCE cov: 24 ft: 29 corp: 9/166b lim: 4096 exec/s: 0 rss: 36Mb L: 56/56 MS: 1 InsertRepeatedBytes-
+#235	NEW    cov: 25 ft: 30 corp: 10/169b lim: 4096 exec/s: 0 rss: 36Mb L: 3/56 MS: 1 EraseBytes-
+#246	NEW    cov: 26 ft: 31 corp: 11/171b lim: 4096 exec/s: 0 rss: 36Mb L: 2/56 MS: 1 EraseBytes-
+#270	REDUCE cov: 26 ft: 32 corp: 12/204b lim: 4096 exec/s: 0 rss: 36Mb L: 33/56 MS: 4 ChangeBinInt-CopyPart-ChangeByte-ManualDict- DE: "\\p{IsHebrew}"-
+#272	REDUCE cov: 30 ft: 36 corp: 13/215b lim: 4096 exec/s: 0 rss: 36Mb L: 11/56 MS: 2 ChangeBit-CMP- DE: "\036\000\000\000\000\000\000\000"-
+#313	REDUCE cov: 30 ft: 36 corp: 13/214b lim: 4096 exec/s: 0 rss: 36Mb L: 7/56 MS: 1 EraseBytes-
+#329	REDUCE cov: 30 ft: 36 corp: 13/212b lim: 4096 exec/s: 0 rss: 36Mb L: 9/56 MS: 1 EraseBytes-
+#332	REDUCE cov: 30 ft: 36 corp: 13/209b lim: 4096 exec/s: 0 rss: 36Mb L: 8/56 MS: 3 ShuffleBytes-ManualDict-EraseBytes- DE: "\\p{M}"-
+#333	REDUCE cov: 30 ft: 36 corp: 13/206b lim: 4096 exec/s: 0 rss: 36Mb L: 3/56 MS: 1 EraseBytes-
+#360	REDUCE cov: 31 ft: 37 corp: 14/224b lim: 4096 exec/s: 0 rss: 36Mb L: 18/56 MS: 2 CrossOver-EraseBytes-
+#361	REDUCE cov: 31 ft: 37 corp: 14/223b lim: 4096 exec/s: 0 rss: 36Mb L: 2/56 MS: 1 EraseBytes-
+#363	REDUCE cov: 31 ft: 37 corp: 14/219b lim: 4096 exec/s: 0 rss: 36Mb L: 11/56 MS: 2 ShuffleBytes-EraseBytes-
+#371	REDUCE cov: 32 ft: 38 corp: 15/220b lim: 4096 exec/s: 0 rss: 36Mb L: 1/56 MS: 3 ChangeByte-ChangeBit-EraseBytes-
+#428	NEW    cov: 33 ft: 39 corp: 16/222b lim: 4096 exec/s: 0 rss: 36Mb L: 2/56 MS: 2 ShuffleBytes-InsertByte-
+#482	REDUCE cov: 33 ft: 40 corp: 17/331b lim: 4096 exec/s: 0 rss: 36Mb L: 109/109 MS: 4 InsertByte-ShuffleBytes-InsertByte-InsertRepeatedBytes-
+#555	REDUCE cov: 33 ft: 40 corp: 17/328b lim: 4096 exec/s: 0 rss: 37Mb L: 8/109 MS: 3 ChangeBinInt-CMP-EraseBytes- DE: "\005\000"-
+#577	REDUCE cov: 33 ft: 40 corp: 17/327b lim: 4096 exec/s: 0 rss: 37Mb L: 2/109 MS: 2 ChangeBit-EraseBytes-
+#614	REDUCE cov: 33 ft: 40 corp: 17/326b lim: 4096 exec/s: 0 rss: 37Mb L: 1/109 MS: 2 EraseBytes-ChangeByte-
+#622	REDUCE cov: 33 ft: 40 corp: 17/323b lim: 4096 exec/s: 0 rss: 37Mb L: 5/109 MS: 3 ChangeBinInt-CrossOver-EraseBytes-
+#689	REDUCE cov: 33 ft: 40 corp: 17/318b lim: 4096 exec/s: 0 rss: 37Mb L: 13/109 MS: 2 CopyPart-EraseBytes-
+#720	REDUCE cov: 33 ft: 40 corp: 17/313b lim: 4096 exec/s: 0 rss: 37Mb L: 28/109 MS: 1 EraseBytes-
+#807	REDUCE cov: 33 ft: 40 corp: 17/310b lim: 4096 exec/s: 0 rss: 37Mb L: 2/109 MS: 2 EraseBytes-EraseBytes-
+#927	NEW    cov: 33 ft: 41 corp: 18/604b lim: 4096 exec/s: 0 rss: 37Mb L: 294/294 MS: 5 InsertRepeatedBytes-PersAutoDict-ChangeByte-CMP-InsertRepeatedBytes- DE: "\\p{IsHebrew}"-"\377\377\377\377"-
+#951	REDUCE cov: 33 ft: 41 corp: 18/583b lim: 4096 exec/s: 0 rss: 37Mb L: 88/294 MS: 4 InsertByte-ChangeBinInt-ChangeBit-EraseBytes-
+#1092	REDUCE cov: 33 ft: 41 corp: 18/582b lim: 4096 exec/s: 0 rss: 37Mb L: 13/294 MS: 1 EraseBytes-
+#1128	REDUCE cov: 33 ft: 41 corp: 18/581b lim: 4096 exec/s: 0 rss: 37Mb L: 1/294 MS: 1 EraseBytes-
+#1155	REDUCE cov: 33 ft: 41 corp: 18/580b lim: 4096 exec/s: 0 rss: 37Mb L: 6/294 MS: 2 ShuffleBytes-EraseBytes-
+#1242	REDUCE cov: 33 ft: 41 corp: 18/579b lim: 4096 exec/s: 0 rss: 37Mb L: 1/294 MS: 2 ShuffleBytes-EraseBytes-
+#1290	REDUCE cov: 33 ft: 41 corp: 18/578b lim: 4096 exec/s: 0 rss: 37Mb L: 5/294 MS: 3 ChangeByte-ChangeByte-EraseBytes-
+#1348	REDUCE cov: 33 ft: 41 corp: 18/559b lim: 4096 exec/s: 0 rss: 37Mb L: 69/294 MS: 3 InsertRepeatedBytes-ChangeBinInt-EraseBytes-
+#1429	REDUCE cov: 33 ft: 41 corp: 18/558b lim: 4096 exec/s: 0 rss: 37Mb L: 1/294 MS: 1 EraseBytes-
+#1631	REDUCE cov: 33 ft: 41 corp: 18/556b lim: 4096 exec/s: 0 rss: 37Mb L: 7/294 MS: 2 InsertByte-EraseBytes-
+#1638	REDUCE cov: 33 ft: 41 corp: 18/552b lim: 4096 exec/s: 0 rss: 37Mb L: 4/294 MS: 2 ChangeBinInt-EraseBytes-
+#1664	REDUCE cov: 33 ft: 41 corp: 18/545b lim: 4096 exec/s: 0 rss: 37Mb L: 26/294 MS: 1 EraseBytes-
+#1817	REDUCE cov: 33 ft: 41 corp: 18/537b lim: 4096 exec/s: 0 rss: 37Mb L: 20/294 MS: 3 CrossOver-CrossOver-EraseBytes-
+#1833	REDUCE cov: 33 ft: 41 corp: 18/536b lim: 4096 exec/s: 0 rss: 37Mb L: 3/294 MS: 1 EraseBytes-
+#1859	REDUCE cov: 33 ft: 41 corp: 18/530b lim: 4096 exec/s: 0 rss: 37Mb L: 7/294 MS: 1 EraseBytes-
+#2102	REDUCE cov: 33 ft: 41 corp: 18/524b lim: 4096 exec/s: 0 rss: 37Mb L: 50/294 MS: 3 ChangeByte-PersAutoDict-EraseBytes- DE: "\005\000"-
+#2104	REDUCE cov: 33 ft: 41 corp: 18/512b lim: 4096 exec/s: 0 rss: 37Mb L: 38/294 MS: 2 ChangeBinInt-EraseBytes-
+#2201	REDUCE cov: 33 ft: 41 corp: 18/509b lim: 4096 exec/s: 0 rss: 37Mb L: 8/294 MS: 2 PersAutoDict-EraseBytes- DE: "\036\000\000\000\000\000\000\000"-
+#2224	REDUCE cov: 33 ft: 41 corp: 18/506b lim: 4096 exec/s: 0 rss: 37Mb L: 23/294 MS: 3 CrossOver-ManualDict-EraseBytes- DE: "\\p{IsNumberForms}"-
+#2262	REDUCE cov: 33 ft: 41 corp: 18/505b lim: 4096 exec/s: 0 rss: 37Mb L: 2/294 MS: 3 CopyPart-CopyPart-EraseBytes-
+#2469	REDUCE cov: 33 ft: 41 corp: 18/504b lim: 4096 exec/s: 0 rss: 37Mb L: 4/294 MS: 2 ChangeBinInt-EraseBytes-
+#2695	REDUCE cov: 33 ft: 41 corp: 18/503b lim: 4096 exec/s: 0 rss: 37Mb L: 3/294 MS: 1 EraseBytes-
+#2753	REDUCE cov: 33 ft: 41 corp: 18/500b lim: 4096 exec/s: 0 rss: 37Mb L: 17/294 MS: 3 ChangeBit-ChangeASCIIInt-EraseBytes-
+#2931	REDUCE cov: 33 ft: 41 corp: 18/492b lim: 4096 exec/s: 0 rss: 38Mb L: 9/294 MS: 3 ShuffleBytes-ShuffleBytes-EraseBytes-
+#3932	REDUCE cov: 33 ft: 41 corp: 18/491b lim: 4096 exec/s: 0 rss: 38Mb L: 2/294 MS: 1 EraseBytes-
+#4261	REDUCE cov: 33 ft: 41 corp: 18/487b lim: 4096 exec/s: 0 rss: 38Mb L: 4/294 MS: 4 EraseBytes-EraseBytes-ChangeBinInt-CopyPart-
+#4582	REDUCE cov: 33 ft: 41 corp: 18/485b lim: 4096 exec/s: 0 rss: 38Mb L: 5/294 MS: 1 EraseBytes-
+#4638	REDUCE cov: 33 ft: 41 corp: 18/484b lim: 4096 exec/s: 0 rss: 38Mb L: 1/294 MS: 1 EraseBytes-
+#4900	REDUCE cov: 33 ft: 41 corp: 18/483b lim: 4096 exec/s: 0 rss: 38Mb L: 1/294 MS: 2 ChangeBit-EraseBytes-
+#6082	REDUCE cov: 33 ft: 41 corp: 18/481b lim: 4096 exec/s: 0 rss: 38Mb L: 3/294 MS: 2 ChangeBit-EraseBytes-
+#6113	REDUCE cov: 33 ft: 41 corp: 18/480b lim: 4096 exec/s: 0 rss: 38Mb L: 2/294 MS: 1 EraseBytes-
+#7054	REDUCE cov: 33 ft: 41 corp: 18/478b lim: 4096 exec/s: 0 rss: 39Mb L: 21/294 MS: 1 EraseBytes-
+#7330	REDUCE cov: 33 ft: 41 corp: 18/477b lim: 4096 exec/s: 0 rss: 39Mb L: 11/294 MS: 1 EraseBytes-
+#8282	REDUCE cov: 33 ft: 41 corp: 18/476b lim: 4096 exec/s: 0 rss: 39Mb L: 1/294 MS: 2 ShuffleBytes-EraseBytes-
+#8694	REDUCE cov: 33 ft: 41 corp: 18/467b lim: 4096 exec/s: 0 rss: 39Mb L: 285/285 MS: 2 ManualDict-EraseBytes- DE: "\\p{IsGreekExtended}"-
+#9651	REDUCE cov: 33 ft: 41 corp: 18/448b lim: 4096 exec/s: 0 rss: 39Mb L: 266/266 MS: 2 EraseBytes-CMP- DE: "\002\000\000\000\000\000\000\000"-
+#25359	REDUCE cov: 33 ft: 41 corp: 18/447b lim: 4096 exec/s: 0 rss: 43Mb L: 265/265 MS: 3 ChangeBinInt-ChangeByte-EraseBytes-
+#27123	REDUCE cov: 33 ft: 41 corp: 18/445b lim: 4096 exec/s: 0 rss: 44Mb L: 263/263 MS: 4 ChangeByte-ManualDict-ChangeBit-EraseBytes- DE: "\\p{IsSinhala}"-
+#33072	REDUCE cov: 33 ft: 41 corp: 18/443b lim: 4096 exec/s: 0 rss: 45Mb L: 261/261 MS: 4 InsertByte-ShuffleBytes-ChangeBit-EraseBytes-
+#41581	REDUCE cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 0 rss: 48Mb L: 37/261 MS: 4 CrossOver-InsertByte-CopyPart-EraseBytes-
+#1048576	pulse  cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 349525 rss: 60Mb
+#2097152	pulse  cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 299593 rss: 60Mb
+#4194304	pulse  cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 279620 rss: 60Mb
+#8388608	pulse  cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 270600 rss: 61Mb
+#15870681	DONE   cov: 33 ft: 41 corp: 18/442b lim: 4096 exec/s: 260175 rss: 61Mb
+###### Recommended dictionary. ######
+"\036\000\000\000\000\000\000\000" # Uses: 129415
+"\005\000" # Uses: 146854
+"\377\377\377\377" # Uses: 137846
+"\002\000\000\000\000\000\000\000" # Uses: 129595
+###### End of recommended dictionary. ######
+Done 15870681 runs in 61 second(s)
+stat::number_of_executed_units: 15870681
+stat::average_exec_per_sec:     260175
+stat::new_units_added:          72
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              61

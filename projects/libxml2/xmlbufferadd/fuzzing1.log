@@ -1,0 +1,49 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlbufferadd/run1_iuoffadejrpwbckk/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_iuoffadejrpwbckk:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47234 inline 8-bit counters): 47234 [0x5607c4839578, 0x5607c4844dfa), 
+INFO: Loaded 1 PC tables (47234 PCs): 47234 [0x5607c4844e00,0x5607c48fd620), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 33Mb
+#122	INITED cov: 14 ft: 15 corp: 1/12b exec/s: 0 rss: 36Mb
+#123	REDUCE cov: 14 ft: 15 corp: 1/11b lim: 4096 exec/s: 0 rss: 36Mb L: 11/11 MS: 1 EraseBytes-
+#131	REDUCE cov: 15 ft: 16 corp: 2/120b lim: 4096 exec/s: 0 rss: 36Mb L: 109/109 MS: 3 CopyPart-ShuffleBytes-InsertRepeatedBytes-
+#157	REDUCE cov: 15 ft: 16 corp: 2/115b lim: 4096 exec/s: 0 rss: 36Mb L: 104/104 MS: 1 EraseBytes-
+#169	REDUCE cov: 15 ft: 16 corp: 2/114b lim: 4096 exec/s: 0 rss: 36Mb L: 10/104 MS: 2 CMP-EraseBytes- DE: "\030\000\000\000"-
+#201	REDUCE cov: 15 ft: 16 corp: 2/110b lim: 4096 exec/s: 0 rss: 36Mb L: 6/104 MS: 2 ShuffleBytes-EraseBytes-
+#205	REDUCE cov: 15 ft: 16 corp: 2/107b lim: 4096 exec/s: 0 rss: 36Mb L: 3/104 MS: 4 CrossOver-ChangeBinInt-ChangeBinInt-EraseBytes-
+#241	REDUCE cov: 15 ft: 16 corp: 2/80b lim: 4096 exec/s: 0 rss: 37Mb L: 77/77 MS: 1 EraseBytes-
+#244	REDUCE cov: 15 ft: 16 corp: 2/46b lim: 4096 exec/s: 0 rss: 37Mb L: 43/43 MS: 3 CopyPart-ChangeBinInt-EraseBytes-
+#260	REDUCE cov: 15 ft: 16 corp: 2/45b lim: 4096 exec/s: 0 rss: 37Mb L: 2/43 MS: 1 EraseBytes-
+#274	REDUCE cov: 15 ft: 16 corp: 2/38b lim: 4096 exec/s: 0 rss: 37Mb L: 36/36 MS: 4 ManualDict-InsertByte-PersAutoDict-EraseBytes- DE: "\\p{IsKangxiRadicals}"-"\030\000\000\000"-
+#362	REDUCE cov: 15 ft: 16 corp: 2/33b lim: 4096 exec/s: 0 rss: 37Mb L: 31/31 MS: 3 ChangeBinInt-ShuffleBytes-EraseBytes-
+#370	REDUCE cov: 15 ft: 16 corp: 2/21b lim: 4096 exec/s: 0 rss: 37Mb L: 19/19 MS: 3 ChangeByte-ChangeBit-EraseBytes-
+#456	REDUCE cov: 15 ft: 16 corp: 2/20b lim: 4096 exec/s: 0 rss: 37Mb L: 1/19 MS: 1 EraseBytes-
+#507	REDUCE cov: 15 ft: 16 corp: 2/11b lim: 4096 exec/s: 0 rss: 37Mb L: 10/10 MS: 1 EraseBytes-
+#550	REDUCE cov: 15 ft: 16 corp: 2/7b lim: 4096 exec/s: 0 rss: 37Mb L: 6/6 MS: 3 PersAutoDict-ChangeBinInt-EraseBytes- DE: "\030\000\000\000"-
+#581	REDUCE cov: 15 ft: 16 corp: 2/4b lim: 4096 exec/s: 0 rss: 37Mb L: 3/3 MS: 1 EraseBytes-
+#613	REDUCE cov: 15 ft: 16 corp: 2/3b lim: 4096 exec/s: 0 rss: 37Mb L: 2/2 MS: 2 InsertByte-EraseBytes-
+#665	REDUCE cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 0 rss: 37Mb L: 1/1 MS: 2 ChangeBit-EraseBytes-
+#524288	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 262144 rss: 59Mb
+#1048576	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 262144 rss: 59Mb
+#2097152	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 299593 rss: 59Mb
+#4194304	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 262144 rss: 59Mb
+#8388608	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 279620 rss: 60Mb
+#16777216	pulse  cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 284359 rss: 60Mb
+#17076410	DONE   cov: 15 ft: 16 corp: 2/2b lim: 4096 exec/s: 279941 rss: 60Mb
+###### Recommended dictionary. ######
+"\030\000\000\000" # Uses: 589879
+###### End of recommended dictionary. ######
+Done 17076410 runs in 61 second(s)
+stat::number_of_executed_units: 17076410
+stat::average_exec_per_sec:     279941
+stat::new_units_added:          18
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              60

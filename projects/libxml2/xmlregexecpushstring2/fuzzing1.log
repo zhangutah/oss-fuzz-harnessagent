@@ -1,0 +1,55 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlregexecpushstring2/run1_theixxwjuthzsscf/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_theixxwjuthzsscf:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47245 inline 8-bit counters): 47245 [0x5641154de578, 0x5641154e9e05), 
+INFO: Loaded 1 PC tables (47245 PCs): 47245 [0x5641154e9e08,0x5641155a26d8), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 33Mb
+#122	INITED cov: 270 ft: 284 corp: 6/347b exec/s: 0 rss: 39Mb
+#123	REDUCE cov: 270 ft: 284 corp: 6/346b lim: 4096 exec/s: 0 rss: 39Mb L: 11/185 MS: 1 EraseBytes-
+#138	REDUCE cov: 270 ft: 284 corp: 6/339b lim: 4096 exec/s: 0 rss: 39Mb L: 68/185 MS: 5 EraseBytes-InsertRepeatedBytes-EraseBytes-CopyPart-EraseBytes-
+#360	NEW    cov: 270 ft: 285 corp: 7/592b lim: 4096 exec/s: 0 rss: 43Mb L: 253/253 MS: 2 ShuffleBytes-CrossOver-
+#389	NEW    cov: 270 ft: 287 corp: 8/1365b lim: 4096 exec/s: 0 rss: 44Mb L: 773/773 MS: 4 ChangeByte-ChangeByte-CrossOver-CopyPart-
+#404	REDUCE cov: 270 ft: 287 corp: 8/1356b lim: 4096 exec/s: 0 rss: 44Mb L: 176/773 MS: 5 ShuffleBytes-CMP-ShuffleBytes-CopyPart-EraseBytes- DE: ":\000\000\000\000\000\000\000"-
+#409	NEW    cov: 270 ft: 291 corp: 9/1364b lim: 4096 exec/s: 0 rss: 44Mb L: 8/773 MS: 5 PersAutoDict-ChangeByte-EraseBytes-ShuffleBytes-EraseBytes- DE: ":\000\000\000\000\000\000\000"-
+#436	REDUCE cov: 270 ft: 292 corp: 10/1614b lim: 4096 exec/s: 0 rss: 45Mb L: 250/773 MS: 2 ChangeBit-InsertRepeatedBytes-
+#528	NEW    cov: 270 ft: 297 corp: 11/1618b lim: 4096 exec/s: 0 rss: 47Mb L: 4/773 MS: 2 ChangeByte-EraseBytes-
+#554	REDUCE cov: 270 ft: 297 corp: 11/1613b lim: 4096 exec/s: 0 rss: 48Mb L: 171/773 MS: 1 EraseBytes-
+#570	REDUCE cov: 270 ft: 297 corp: 11/1611b lim: 4096 exec/s: 0 rss: 49Mb L: 6/773 MS: 1 EraseBytes-
+#742	REDUCE cov: 270 ft: 300 corp: 12/1614b lim: 4096 exec/s: 0 rss: 53Mb L: 3/773 MS: 2 ShuffleBytes-EraseBytes-
+#771	REDUCE cov: 270 ft: 300 corp: 12/1611b lim: 4096 exec/s: 0 rss: 54Mb L: 168/773 MS: 4 EraseBytes-ManualDict-CrossOver-InsertRepeatedBytes- DE: "\\p{IsTamil}"-
+#786	REDUCE cov: 270 ft: 300 corp: 12/1596b lim: 4096 exec/s: 0 rss: 54Mb L: 153/773 MS: 5 CrossOver-EraseBytes-ShuffleBytes-ShuffleBytes-InsertRepeatedBytes-
+#919	REDUCE cov: 270 ft: 300 corp: 12/1595b lim: 4096 exec/s: 0 rss: 55Mb L: 5/773 MS: 3 ChangeByte-EraseBytes-CopyPart-
+#1296	NEW    cov: 270 ft: 301 corp: 13/1847b lim: 4096 exec/s: 0 rss: 58Mb L: 252/773 MS: 2 ChangeByte-EraseBytes-
+#1319	NEW    cov: 270 ft: 306 corp: 14/1849b lim: 4096 exec/s: 0 rss: 58Mb L: 2/773 MS: 3 ChangeBit-CopyPart-EraseBytes-
+#1352	REDUCE cov: 270 ft: 306 corp: 14/1845b lim: 4096 exec/s: 0 rss: 58Mb L: 149/773 MS: 3 InsertByte-InsertByte-EraseBytes-
+#1880	REDUCE cov: 270 ft: 306 corp: 14/1843b lim: 4096 exec/s: 0 rss: 60Mb L: 9/773 MS: 3 ChangeBit-ChangeBit-EraseBytes-
+#2027	NEW    cov: 272 ft: 309 corp: 15/1844b lim: 4096 exec/s: 0 rss: 61Mb L: 1/773 MS: 2 EraseBytes-EraseBytes-
+#2296	NEW    cov: 272 ft: 310 corp: 16/2095b lim: 4096 exec/s: 0 rss: 61Mb L: 251/773 MS: 4 ChangeBinInt-ManualDict-ChangeBinInt-ManualDict- DE: "\\p{IsCJKCompatibilityIdeographsSupplement}"-"."-
+#2630	REDUCE cov: 272 ft: 310 corp: 16/2093b lim: 4096 exec/s: 0 rss: 61Mb L: 66/773 MS: 4 InsertByte-PersAutoDict-CrossOver-EraseBytes- DE: "\\p{IsTamil}"-
+#2742	REDUCE cov: 272 ft: 310 corp: 16/1837b lim: 4096 exec/s: 0 rss: 61Mb L: 517/517 MS: 2 ManualDict-EraseBytes- DE: "\\p{IsTags}"-
+#5283	REDUCE cov: 272 ft: 310 corp: 16/1584b lim: 4096 exec/s: 0 rss: 67Mb L: 264/264 MS: 1 EraseBytes-
+#5681	REDUCE cov: 272 ft: 310 corp: 16/1581b lim: 4096 exec/s: 0 rss: 67Mb L: 261/261 MS: 3 ChangeByte-InsertByte-EraseBytes-
+#52404	REDUCE cov: 272 ft: 310 corp: 16/1325b lim: 4096 exec/s: 52404 rss: 71Mb L: 5/253 MS: 2 ChangeBit-CrossOver-
+#131072	pulse  cov: 272 ft: 310 corp: 16/1325b lim: 4096 exec/s: 43690 rss: 71Mb
+#262144	pulse  cov: 272 ft: 310 corp: 16/1325b lim: 4096 exec/s: 37449 rss: 71Mb
+#524288	pulse  cov: 272 ft: 310 corp: 16/1325b lim: 4096 exec/s: 30840 rss: 71Mb
+#882971	REDUCE cov: 272 ft: 310 corp: 16/1073b lim: 4096 exec/s: 31534 rss: 71Mb L: 1/252 MS: 2 ChangeBinInt-CrossOver-
+#1048576	pulse  cov: 272 ft: 310 corp: 16/1073b lim: 4096 exec/s: 31775 rss: 71Mb
+#1866656	DONE   cov: 272 ft: 310 corp: 16/1073b lim: 4096 exec/s: 30600 rss: 71Mb
+###### Recommended dictionary. ######
+":\000\000\000\000\000\000\000" # Uses: 28726
+###### End of recommended dictionary. ######
+Done 1866656 runs in 61 second(s)
+stat::number_of_executed_units: 1866656
+stat::average_exec_per_sec:     30600
+stat::new_units_added:          26
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              71

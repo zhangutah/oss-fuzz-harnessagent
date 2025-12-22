@@ -1,0 +1,65 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmloutputbufferflush/run1_mbodwuicqpfhblsf/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_mbodwuicqpfhblsf:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47246 inline 8-bit counters): 47246 [0x5613f4cfb568, 0x5613f4d06df6), 
+INFO: Loaded 1 PC tables (47246 PCs): 47246 [0x5613f4d06df8,0x5613f4dbf6d8), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 34Mb
+#122	INITED cov: 46 ft: 50 corp: 4/141b exec/s: 0 rss: 37Mb
+#123	REDUCE cov: 46 ft: 50 corp: 4/140b lim: 4096 exec/s: 0 rss: 38Mb L: 11/75 MS: 1 EraseBytes-
+#173	NEW    cov: 49 ft: 53 corp: 5/179b lim: 4096 exec/s: 0 rss: 38Mb L: 39/75 MS: 5 ManualDict-ChangeBit-ShuffleBytes-CopyPart-EraseBytes- DE: "\\p{S}"-
+#174	REDUCE cov: 49 ft: 54 corp: 6/188b lim: 4096 exec/s: 0 rss: 38Mb L: 9/75 MS: 1 EraseBytes-
+#184	NEW    cov: 53 ft: 59 corp: 7/198b lim: 4096 exec/s: 0 rss: 38Mb L: 10/75 MS: 5 ChangeBit-ChangeBit-ChangeBit-InsertByte-PersAutoDict- DE: "\\p{S}"-
+#204	REDUCE cov: 53 ft: 59 corp: 7/197b lim: 4096 exec/s: 0 rss: 38Mb L: 35/75 MS: 5 CMP-InsertByte-CMP-InsertByte-EraseBytes- DE: "\000\000\000\000\000\000\000\000"-"%\000\000\000\000\000\000\000"-
+#207	REDUCE cov: 53 ft: 59 corp: 7/196b lim: 4096 exec/s: 0 rss: 38Mb L: 8/75 MS: 3 ChangeASCIIInt-PersAutoDict-EraseBytes- DE: "\\p{S}"-
+#243	REDUCE cov: 53 ft: 60 corp: 8/201b lim: 4096 exec/s: 0 rss: 38Mb L: 5/75 MS: 1 EraseBytes-
+#284	REDUCE cov: 53 ft: 60 corp: 8/190b lim: 4096 exec/s: 0 rss: 39Mb L: 28/75 MS: 1 EraseBytes-
+#290	REDUCE cov: 53 ft: 60 corp: 8/188b lim: 4096 exec/s: 0 rss: 39Mb L: 26/75 MS: 1 EraseBytes-
+#312	REDUCE cov: 53 ft: 60 corp: 8/184b lim: 4096 exec/s: 0 rss: 39Mb L: 71/71 MS: 2 ChangeBit-EraseBytes-
+#319	REDUCE cov: 53 ft: 60 corp: 8/181b lim: 4096 exec/s: 0 rss: 39Mb L: 7/71 MS: 2 CrossOver-EraseBytes-
+#338	REDUCE cov: 53 ft: 60 corp: 8/180b lim: 4096 exec/s: 0 rss: 39Mb L: 25/71 MS: 4 ChangeBinInt-ChangeASCIIInt-CMP-EraseBytes- DE: "\377\377\377\377~\377\377\377"-
+#339	REDUCE cov: 53 ft: 60 corp: 8/174b lim: 4096 exec/s: 0 rss: 39Mb L: 65/65 MS: 1 EraseBytes-
+#541	REDUCE cov: 53 ft: 60 corp: 8/169b lim: 4096 exec/s: 0 rss: 40Mb L: 20/65 MS: 2 CrossOver-EraseBytes-
+#564	REDUCE cov: 53 ft: 60 corp: 8/168b lim: 4096 exec/s: 0 rss: 40Mb L: 34/65 MS: 3 ChangeBit-PersAutoDict-EraseBytes- DE: "%\000\000\000\000\000\000\000"-
+#594	REDUCE cov: 53 ft: 61 corp: 9/172b lim: 4096 exec/s: 0 rss: 40Mb L: 4/65 MS: 5 EraseBytes-ShuffleBytes-ChangeBit-EraseBytes-ChangeBinInt-
+#604	NEW    cov: 53 ft: 62 corp: 10/175b lim: 4096 exec/s: 0 rss: 40Mb L: 3/65 MS: 5 ShuffleBytes-CopyPart-ChangeByte-ChangeBit-EraseBytes-
+#715	REDUCE cov: 53 ft: 62 corp: 10/174b lim: 4096 exec/s: 0 rss: 41Mb L: 10/65 MS: 1 EraseBytes-
+#761	REDUCE cov: 53 ft: 62 corp: 10/172b lim: 4096 exec/s: 0 rss: 41Mb L: 5/65 MS: 1 EraseBytes-
+#787	REDUCE cov: 53 ft: 62 corp: 10/171b lim: 4096 exec/s: 0 rss: 41Mb L: 7/65 MS: 1 EraseBytes-
+#800	REDUCE cov: 53 ft: 62 corp: 10/164b lim: 4096 exec/s: 0 rss: 41Mb L: 13/65 MS: 3 CopyPart-ChangeBinInt-EraseBytes-
+#801	REDUCE cov: 53 ft: 62 corp: 10/163b lim: 4096 exec/s: 0 rss: 41Mb L: 4/65 MS: 1 EraseBytes-
+#836	REDUCE cov: 53 ft: 62 corp: 10/162b lim: 4096 exec/s: 0 rss: 41Mb L: 12/65 MS: 5 CopyPart-ShuffleBytes-PersAutoDict-ChangeByte-EraseBytes- DE: "%\000\000\000\000\000\000\000"-
+#858	REDUCE cov: 53 ft: 62 corp: 10/159b lim: 4096 exec/s: 0 rss: 42Mb L: 9/65 MS: 2 CopyPart-EraseBytes-
+#1056	REDUCE cov: 53 ft: 62 corp: 10/156b lim: 4096 exec/s: 0 rss: 42Mb L: 6/65 MS: 3 CopyPart-ChangeByte-EraseBytes-
+#1202	REDUCE cov: 53 ft: 62 corp: 10/155b lim: 4096 exec/s: 0 rss: 43Mb L: 5/65 MS: 1 EraseBytes-
+#1273	REDUCE cov: 53 ft: 62 corp: 10/154b lim: 4096 exec/s: 0 rss: 44Mb L: 6/65 MS: 1 EraseBytes-
+#1317	NEW    cov: 54 ft: 68 corp: 11/155b lim: 4096 exec/s: 0 rss: 44Mb L: 1/65 MS: 4 ChangeBit-CopyPart-EraseBytes-EraseBytes-
+#1488	REDUCE cov: 54 ft: 68 corp: 11/153b lim: 4096 exec/s: 0 rss: 45Mb L: 3/65 MS: 1 EraseBytes-
+#1591	REDUCE cov: 54 ft: 68 corp: 11/151b lim: 4096 exec/s: 0 rss: 45Mb L: 2/65 MS: 3 CopyPart-ChangeBit-EraseBytes-
+#2128	REDUCE cov: 54 ft: 68 corp: 11/150b lim: 4096 exec/s: 0 rss: 48Mb L: 2/65 MS: 2 ChangeByte-EraseBytes-
+#2334	REDUCE cov: 54 ft: 68 corp: 11/149b lim: 4096 exec/s: 0 rss: 49Mb L: 1/65 MS: 1 EraseBytes-
+#2483	REDUCE cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 0 rss: 50Mb L: 1/65 MS: 4 CopyPart-ShuffleBytes-ChangeByte-EraseBytes-
+#524288	pulse  cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 262144 rss: 51Mb
+#1048576	pulse  cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 262144 rss: 51Mb
+#2097152	pulse  cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 233016 rss: 51Mb
+#4194304	pulse  cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 246723 rss: 51Mb
+#8388608	pulse  cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 246723 rss: 51Mb
+#14588533	DONE   cov: 54 ft: 68 corp: 11/148b lim: 4096 exec/s: 239156 rss: 51Mb
+###### Recommended dictionary. ######
+"\000\000\000\000\000\000\000\000" # Uses: 262356
+"%\000\000\000\000\000\000\000" # Uses: 262146
+"\377\377\377\377~\377\377\377" # Uses: 261955
+###### End of recommended dictionary. ######
+Done 14588533 runs in 61 second(s)
+stat::number_of_executed_units: 14588533
+stat::average_exec_per_sec:     239156
+stat::new_units_added:          33
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              51

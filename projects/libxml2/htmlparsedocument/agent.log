@@ -1,0 +1,477 @@
+2025-12-11 10:21:01,126 - INFO - Function: int htmlParseDocument(htmlParserCtxt * ctxt) (fuzzenv.py:141)
+2025-12-11 10:21:01,126 - INFO - Create a new project: run1_akcrogdkrrpitbux (fuzzenv.py:142)
+2025-12-11 10:21:04,103 - INFO - Build Image a new project: run1_akcrogdkrrpitbux, build res:True (fuzzenv.py:155)
+2025-12-11 10:21:22,451 - INFO - bear res: ['  adding: vid-8 (deflated 65%)', '  adding: vid-9 (deflated 66%)'] (code_retriever.py:59)
+2025-12-11 10:21:26,296 - INFO - Saved harness_fuzzer_pairs.json, content:{'regexp': '/src/libxml2/fuzz/regexp.c', 'uri': '/src/libxml2/fuzz/uri.c', 'html': '/src/libxml2/fuzz/html.c', 'xml': '/src/libxml2/fuzz/xml.c', 'reader': '/src/libxml2/fuzz/reader.c', 'valid': '/src/libxml2/fuzz/valid.c', 'xinclude': '/src/libxml2/fuzz/xinclude.c', 'api': '/src/libxml2/fuzz/api.c', 'xpath': '/src/libxml2/fuzz/xpath.c', 'schema': '/src/libxml2/fuzz/schema.c', 'lint': '/src/libxml2/fuzz/lint.c'} (fuzzenv.py:274)
+2025-12-11 10:21:26,905 - INFO - Using agent for header files (generation.py:138)
+2025-12-11 10:21:26,905 - INFO - Using project for example source (generation.py:290)
+2025-12-11 10:21:37,619 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for htmlParseDocument (code_retriever.py:226)
+2025-12-11 10:21:37,620 - INFO - Found 4 references for htmlParseDocument with lsp retriever (code_retriever.py:330)
+2025-12-11 10:21:38,636 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for htmlParseDocument (code_retriever.py:226)
+2025-12-11 10:21:38,637 - INFO - Found 4 references for htmlParseDocument with parser retriever (code_retriever.py:330)
+2025-12-11 10:21:38,638 - INFO - Using rank mode for example selection (generation.py:300)
+2025-12-11 10:22:17,625 - INFO - Found 3 usage in the project after removing harness. (generation.py:305)
+2025-12-11 10:22:17,625 - INFO - Use 1 examples. (generation.py:215)
+2025-12-11 10:22:30,063 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for htmlParseDocument (code_retriever.py:226)
+2025-12-11 10:22:30,063 - INFO - Found 2 declaration for htmlParseDocument with lsp retriever (code_retriever.py:330)
+2025-12-11 10:22:42,052 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for htmlParseDocument (code_retriever.py:226)
+2025-12-11 10:22:42,052 - INFO - Found 2 definition for htmlParseDocument with mixed retriever (code_retriever.py:330)
+2025-12-11 10:22:42,052 - WARNING - Multiple definition found for htmlParseDocument, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:22:45,141 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:22:45,141 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:22:45,141 - WARNING - Multiple declaration found for htmlCreateMemoryParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:22:46,333 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxtInternal from cache (code_retriever.py:346)
+2025-12-11 10:22:46,334 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxtInternal with mixed retriever (code_retriever.py:330)
+2025-12-11 10:22:47,502 - INFO - Getting LSPFunction.References for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:22:47,502 - INFO - Getting LSPFunction.References for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:22:47,502 - INFO - Found 1 references for htmlCreateMemoryParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:22:51,732 - INFO - Getting LSPFunction.Declaration for htmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:22:51,732 - INFO - Found 2 declaration for htmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:22:51,732 - INFO - Getting LSPFunction.StructFunctions for /src/libxml2/include/libxml/HTMLparser.h from cache (code_retriever.py:346)
+2025-12-11 10:22:51,732 - INFO - Found 38 struct_functions for /src/libxml2/include/libxml/HTMLparser.h with parser retriever (code_retriever.py:330)
+2025-12-11 10:22:52,652 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxtInternal from cache (code_retriever.py:346)
+2025-12-11 10:22:52,652 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxtInternal with lsp retriever (code_retriever.py:330)
+2025-12-11 10:23:12,336 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for htmlFreeParserCtxt (code_retriever.py:226)
+2025-12-11 10:23:12,336 - INFO - Found 2 declaration for htmlFreeParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:23:12,336 - WARNING - Multiple declaration found for htmlFreeParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:23:13,536 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxtInternal from cache (code_retriever.py:346)
+2025-12-11 10:23:13,536 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxtInternal with mixed retriever (code_retriever.py:330)
+2025-12-11 10:23:43,819 - INFO - Generate Draft Code. (generator.py:72)
+2025-12-11 10:23:43,820 - INFO - Compile Start for draft_fix0 using regexp. (compilation.py:177)
+2025-12-11 10:24:06,037 - INFO - Compile End for draft_fix0 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 10:24:06,054 - INFO - Run 0th Fuzzer for run1_akcrogdkrrpitbux:regexp (validation.py:60)
+2025-12-11 10:24:56,125 - INFO - Fuzz res:Crash, ['==13== ERROR: libFuzzer: out-of-memory (used: 2625Mb; limit: 2560Mb)'] for run1_akcrogdkrrpitbux:regexp (validation.py:62)
+2025-12-11 10:24:56,127 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 10:25:22,001 - INFO - Fix end for draft_fix0. (fixer.py:58)
+2025-12-11 10:25:36,281 - INFO - Compile Start for draft_fix1 using regexp. (compilation.py:177)
+2025-12-11 10:26:00,140 - INFO - Compile End for draft_fix1 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 10:26:00,157 - INFO - Run 1th Fuzzer for run1_akcrogdkrrpitbux:regexp (validation.py:60)
+2025-12-11 10:26:50,216 - INFO - Fuzz res:Crash, ['==13== ERROR: libFuzzer: out-of-memory (used: 2600Mb; limit: 2560Mb)'] for run1_akcrogdkrrpitbux:regexp (validation.py:62)
+2025-12-11 10:26:50,217 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:26:54,329 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:26:56,437 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:26:59,490 - INFO - Getting LSPFunction.Definition for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:26:59,490 - INFO - Found 2 definition for htmlCreateMemoryParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:26:59,490 - WARNING - Multiple definition found for htmlCreateMemoryParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:26:59,491 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:00,664 - INFO - Getting LSPFunction.Definition for htmlParseDocument from cache (code_retriever.py:346)
+2025-12-11 10:27:00,665 - INFO - Found 2 definition for htmlParseDocument with mixed retriever (code_retriever.py:330)
+2025-12-11 10:27:00,665 - WARNING - Multiple definition found for htmlParseDocument, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:27:00,666 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:06,253 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:07,504 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:17,444 - INFO - Getting LSPFunction.Definition for htmlCreateMemoryParserCtxtInternal from cache (code_retriever.py:346)
+2025-12-11 10:27:17,444 - INFO - Found 2 definition for htmlCreateMemoryParserCtxtInternal with mixed retriever (code_retriever.py:330)
+2025-12-11 10:27:17,444 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:30,347 - INFO - Getting LSPFunction.Definition for xmlCtxtNewInputFromMemory from cache (code_retriever.py:346)
+2025-12-11 10:27:30,347 - INFO - Found 2 definition for xmlCtxtNewInputFromMemory with mixed retriever (code_retriever.py:330)
+2025-12-11 10:27:30,347 - WARNING - Multiple definition found for xmlCtxtNewInputFromMemory, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:27:30,348 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:27:54,474 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for htmlNewParserCtxt (code_retriever.py:226)
+2025-12-11 10:27:54,475 - INFO - Found 2 definition for htmlNewParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:27:54,475 - WARNING - Multiple definition found for htmlNewParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:27:54,476 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:28:13,007 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for htmlNewSAXParserCtxt (code_retriever.py:226)
+2025-12-11 10:28:13,007 - INFO - Found 2 definition for htmlNewSAXParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:28:13,007 - WARNING - Multiple definition found for htmlNewSAXParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:28:13,008 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:28:26,080 - INFO - Getting LSPFunction.Definition for xmlNewInputFromMemory from cache (code_retriever.py:346)
+2025-12-11 10:28:26,081 - INFO - Found 2 definition for xmlNewInputFromMemory with mixed retriever (code_retriever.py:330)
+2025-12-11 10:28:26,081 - WARNING - Multiple definition found for xmlNewInputFromMemory, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:28:26,081 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:28:36,538 - INFO - Getting LSPFunction.Definition for xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:28:36,538 - INFO - Found 1 definition for xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:28:36,538 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:28:37,928 - INFO - Getting LSPFunction.Definition for xmlNewInputBufferMemory from cache (code_retriever.py:346)
+2025-12-11 10:28:37,928 - INFO - Found 2 definition for xmlNewInputBufferMemory with mixed retriever (code_retriever.py:330)
+2025-12-11 10:28:37,928 - WARNING - Multiple definition found for xmlNewInputBufferMemory, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:28:37,929 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:29:02,042 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for XML_PARSE_HUGE (code_retriever.py:226)
+2025-12-11 10:29:02,042 - INFO - Retriever.LSP_code_retriever return [], LSPFunction.References for XML_PARSE_HUGE (code_retriever.py:251)
+2025-12-11 10:29:02,485 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for XML_PARSE_HUGE (code_retriever.py:226)
+2025-12-11 10:29:02,485 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.References for XML_PARSE_HUGE (code_retriever.py:251)
+2025-12-11 10:29:02,485 - INFO - Found 0 references for XML_PARSE_HUGE with mixed retriever (code_retriever.py:330)
+2025-12-11 10:29:02,486 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:29:26,634 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:29:42,551 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for XML_MAX_TEXT_LENGTH (code_retriever.py:226)
+2025-12-11 10:29:42,551 - INFO - Found 2 definition for XML_MAX_TEXT_LENGTH with mixed retriever (code_retriever.py:330)
+2025-12-11 10:29:42,552 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:30:10,849 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for XML_MAX_HUGE_LENGTH (code_retriever.py:226)
+2025-12-11 10:30:10,849 - INFO - Retriever.LSP_code_retriever return [], LSPFunction.References for XML_MAX_HUGE_LENGTH (code_retriever.py:251)
+2025-12-11 10:30:11,297 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for XML_MAX_HUGE_LENGTH (code_retriever.py:226)
+2025-12-11 10:30:11,297 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.References for XML_MAX_HUGE_LENGTH (code_retriever.py:251)
+2025-12-11 10:30:11,297 - INFO - Found 0 references for XML_MAX_HUGE_LENGTH with mixed retriever (code_retriever.py:330)
+2025-12-11 10:30:11,298 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:30:35,685 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for XML_INPUT_BUF_STATIC (code_retriever.py:226)
+2025-12-11 10:30:35,686 - INFO - Retriever.LSP_code_retriever return [], LSPFunction.References for XML_INPUT_BUF_STATIC (code_retriever.py:251)
+2025-12-11 10:30:36,158 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for XML_INPUT_BUF_STATIC (code_retriever.py:226)
+2025-12-11 10:30:36,158 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.References for XML_INPUT_BUF_STATIC (code_retriever.py:251)
+2025-12-11 10:30:36,158 - INFO - Found 0 references for XML_INPUT_BUF_STATIC with mixed retriever (code_retriever.py:330)
+2025-12-11 10:30:36,159 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:30:50,649 - INFO - Getting LSPFunction.References for XML_MAX_HUGE_LENGTH from cache (code_retriever.py:346)
+2025-12-11 10:30:50,649 - INFO - Getting LSPFunction.References for XML_MAX_HUGE_LENGTH from cache (code_retriever.py:346)
+2025-12-11 10:30:50,649 - INFO - Found 0 references for XML_MAX_HUGE_LENGTH with mixed retriever (code_retriever.py:330)
+2025-12-11 10:30:50,650 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:31:12,820 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for xmlParserCtxtPtr (code_retriever.py:226)
+2025-12-11 10:31:12,820 - INFO - Retriever.LSP_code_retriever return [], LSPFunction.References for xmlParserCtxtPtr (code_retriever.py:251)
+2025-12-11 10:31:13,318 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for xmlParserCtxtPtr (code_retriever.py:226)
+2025-12-11 10:31:13,318 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.References for xmlParserCtxtPtr (code_retriever.py:251)
+2025-12-11 10:31:13,318 - INFO - Found 0 references for xmlParserCtxtPtr with mixed retriever (code_retriever.py:330)
+2025-12-11 10:31:13,319 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:31:31,684 - INFO - Getting LSPFunction.Definition for _xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:31:31,684 - INFO - Found 2 definition for _xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:31:31,684 - WARNING - Multiple definition found for _xmlParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:31:31,685 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:31:36,049 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:31:37,074 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:31:38,537 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:32:01,967 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for XML_PARSE_HUGE (code_retriever.py:226)
+2025-12-11 10:32:01,967 - INFO - Found 2 definition for XML_PARSE_HUGE with mixed retriever (code_retriever.py:330)
+2025-12-11 10:32:01,968 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:32:05,049 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 10:32:36,137 - INFO - Fix end for draft_fix1. (fixer.py:58)
+2025-12-11 10:32:53,125 - INFO - Compile Start for draft_fix2 using regexp. (compilation.py:177)
+2025-12-11 10:33:19,920 - INFO - Compile End for draft_fix2 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 10:33:19,938 - INFO - Run 2th Fuzzer for run1_akcrogdkrrpitbux:regexp (validation.py:60)
+2025-12-11 10:33:59,994 - INFO - Fuzz res:Crash, ['==13== ERROR: libFuzzer: out-of-memory (used: 2609Mb; limit: 2560Mb)'] for run1_akcrogdkrrpitbux:regexp (validation.py:62)
+2025-12-11 10:33:59,996 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:13,762 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlCtxtSetMaxAmplification (code_retriever.py:226)
+2025-12-11 10:34:13,763 - INFO - Found 2 declaration for xmlCtxtSetMaxAmplification with lsp retriever (code_retriever.py:330)
+2025-12-11 10:34:13,763 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:25,473 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for xmlCtxtSetMaxAmplification (code_retriever.py:226)
+2025-12-11 10:34:25,474 - INFO - Found 2 definition for xmlCtxtSetMaxAmplification with mixed retriever (code_retriever.py:330)
+2025-12-11 10:34:25,474 - WARNING - Multiple definition found for xmlCtxtSetMaxAmplification, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:34:25,475 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:34,701 - INFO - Getting LSPFunction.Declaration for htmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:34:34,701 - INFO - Found 2 declaration for htmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:34:34,702 - INFO - Getting LSPFunction.StructFunctions for /src/libxml2/include/libxml/HTMLparser.h from cache (code_retriever.py:346)
+2025-12-11 10:34:34,702 - INFO - Found 38 struct_functions for /src/libxml2/include/libxml/HTMLparser.h with parser retriever (code_retriever.py:330)
+2025-12-11 10:34:34,702 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:39,440 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:34:39,440 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:34:39,440 - WARNING - Multiple declaration found for htmlCreateMemoryParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:34:39,441 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:45,008 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:34:50,705 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:35:04,788 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for xmlCtxtSetMaxAmplification (code_retriever.py:226)
+2025-12-11 10:35:04,788 - INFO - Found 2 references for xmlCtxtSetMaxAmplification with mixed retriever (code_retriever.py:330)
+2025-12-11 10:35:04,789 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:35:29,956 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for htmlCtxtUseOptions (code_retriever.py:226)
+2025-12-11 10:35:29,956 - INFO - Found 2 declaration for htmlCtxtUseOptions with mixed retriever (code_retriever.py:330)
+2025-12-11 10:35:29,956 - WARNING - Multiple declaration found for htmlCtxtUseOptions, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:35:29,957 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 10:36:02,049 - INFO - Fix end for draft_fix2. (fixer.py:58)
+2025-12-11 10:36:16,856 - INFO - Compile Start for draft_fix3 using regexp. (compilation.py:177)
+2025-12-11 10:36:39,011 - INFO - Compile End for draft_fix3 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 10:36:39,028 - INFO - Run 3th Fuzzer for run1_akcrogdkrrpitbux:regexp (validation.py:60)
+2025-12-11 10:37:29,094 - INFO - Fuzz res:Crash, ['==13== ERROR: libFuzzer: out-of-memory (used: 2566Mb; limit: 2560Mb)'] for run1_akcrogdkrrpitbux:regexp (validation.py:62)
+2025-12-11 10:37:29,096 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:37:31,999 - INFO - Getting LSPFunction.Declaration for xmlCtxtSetMaxAmplification from cache (code_retriever.py:346)
+2025-12-11 10:37:31,999 - INFO - Found 2 declaration for xmlCtxtSetMaxAmplification with mixed retriever (code_retriever.py:330)
+2025-12-11 10:37:31,999 - WARNING - Multiple declaration found for xmlCtxtSetMaxAmplification, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:37:32,000 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:37:36,324 - INFO - Getting LSPFunction.Declaration for htmlCreateMemoryParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:37:36,324 - INFO - Found 2 declaration for htmlCreateMemoryParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:37:36,324 - WARNING - Multiple declaration found for htmlCreateMemoryParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:37:36,325 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:37:37,286 - INFO - Getting LSPFunction.Declaration for htmlParseDocument from cache (code_retriever.py:346)
+2025-12-11 10:37:37,286 - INFO - Found 2 declaration for htmlParseDocument with mixed retriever (code_retriever.py:330)
+2025-12-11 10:37:37,286 - WARNING - Multiple declaration found for htmlParseDocument, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:37:37,287 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:37:39,220 - INFO - Getting LSPFunction.Declaration for htmlFreeParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:37:39,220 - INFO - Found 2 declaration for htmlFreeParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:37:39,220 - WARNING - Multiple declaration found for htmlFreeParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:37:39,221 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:37:46,490 - INFO - Getting LSPFunction.Declaration for htmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:37:46,490 - INFO - Found 2 declaration for htmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:37:46,490 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:02,536 - INFO - Getting LSPFunction.Declaration for xmlStopParser from cache (code_retriever.py:346)
+2025-12-11 10:38:02,536 - INFO - Found 2 declaration for xmlStopParser with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:02,536 - WARNING - Multiple declaration found for xmlStopParser, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:38:02,537 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:06,522 - INFO - Getting LSPFunction.Declaration for xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:38:06,522 - INFO - Found 1 declaration for xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:06,523 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:11,203 - INFO - Getting LSPFunction.Definition for xmlSAX2Text from cache (code_retriever.py:346)
+2025-12-11 10:38:11,204 - INFO - Found 2 definition for xmlSAX2Text with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:11,204 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:34,265 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for maxAmpl (code_retriever.py:226)
+2025-12-11 10:38:34,266 - INFO - Found 7 references for maxAmpl with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:34,267 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:38,156 - INFO - Getting LSPFunction.Declaration for htmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:38:38,157 - INFO - Found 2 declaration for htmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:38,157 - INFO - Getting LSPFunction.StructFunctions for /src/libxml2/include/libxml/HTMLparser.h from cache (code_retriever.py:346)
+2025-12-11 10:38:38,157 - INFO - Found 38 struct_functions for /src/libxml2/include/libxml/HTMLparser.h with parser retriever (code_retriever.py:330)
+2025-12-11 10:38:38,158 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:38:42,758 - INFO - Getting LSPFunction.Definition for xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:38:42,758 - INFO - Found 1 definition for xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:38:42,759 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:05,889 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlMemSetup (code_retriever.py:226)
+2025-12-11 10:39:05,889 - INFO - Found 2 declaration for xmlMemSetup with mixed retriever (code_retriever.py:330)
+2025-12-11 10:39:05,890 - WARNING - Multiple declaration found for xmlMemSetup, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:39:05,890 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:19,173 - WARNING - /**
+ * @file
+ * 
+ * @brief Validating XML 1.0 parser
+ * 
+ * Interfaces, constants and types related to the XML parser.
+ *
+ * @copyright See Copyright for the status of this software.
+ *
+ * @author Daniel Veillard
+ */
+
+#ifndef __XML_PARSER_H__
+#define __XML_PARSER_H__
+
+#include <libxml/xmlversion.h>
+/** @cond ignore */
+#define XML_TREE_INTERNALS
+/** @endcond */
+#include <libxml/tree.h>
+#undef XML_TREE_INTERNALS
+#include <libxml/dict.h>
+#include <libxml/hash.h>
+#include <libxml/valid.h>
+#include <libxml/entities.h>
+#include <libxml/xmlerror.h>
+#include <libxml/xmlstring.h>
+#include <libxml/xmlmemory.h>
+#include <libxml/encoding.h>
+#include <libxml/xmlIO.h>
+/* for compatibility */
+#include <libxml/SAX2.h>
+#include <libxml/threads.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * The default version of XML used: 1.0
+ */
+#define XML_DEFAULT_VERSION	"1.0"
+
+/**
+ * Status after parsing a document
+ */
+typedef enum {
+    /** not well-formed */
+    XML_STATUS_NOT_WELL_FORMED          = (1 << 0),
+    /** not namespace-well-formed */
+    XML_STATUS_NOT_NS_WELL_FORMED       = (1 << 1),
+    /** DTD validation failed */
+    XML_STATUS_DTD_VALIDATION_FAILED    = (1 << 2),
+    /** catastrophic failure like OOM or I/O error */
+    XML_STATUS_CATASTROPHIC_ERROR       = (1 << 3)
+} xmlParserStatus;
+
+/**
+ * Resource type for resource loaders
+ */
+typedef enum {
+    /** unknown */
+    XML_RESOURCE_UNKNOWN = 0,
+    /** main document */
+    XML_RESOURCE_MAIN_DOCUMENT,
+    /** external DTD */
+    XML_RESOURCE_DTD,
+    /** external general entity */
+    XML_RESOURCE_GENERAL_ENTITY,
+    /** external parameter entity */
+    XML_RESOURCE_PARAMETER_ENTITY,
+    /** XIncluded document */
+    XML_RESOURCE_XINCLUDE,
+    /** XIncluded text */
+    XML_RESOURCE_XINCLUDE_TEXT
+} xmlResourceType;
+
+/**
+ * Flags for parser input
+ */
+typedef enum {
+    /** The input buffer won't be changed during parsing. */
+    XML_INPUT_BUF_STATIC            = (1 << 1),
+    /** The input buffer is zero-terminated. (Note that the zero
+        byte shouldn't be included in buffer size.) */
+    XML_INPUT_BUF_ZERO_TERMINATED   = (1 << 2),
+    /** Uncompress gzipped file input */
+    XML_INPUT_UNZIP                 = (1 << 3),
+    /** Allow network access. Unused internally. */
+    XML_INPUT_NETWORK               = (1 << 4),
+    /** Allow system catalog to resolve URIs. */
+    XML_INPUT_USE_SYS_CATALOG       = (1 << 5)
+} xmlParserInputFlags;
+
+/* Deprecated */
+typedef void (* xmlParserInputDeallocate)(xmlChar *str);
+
+/**
+ * Parser input
+ */
+struct _xmlParserInput {
+    /* Input buffer */
+    xmlParserInputBuffer *buf XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * The filename or URI, if any
+     */
+    const char *filename;
+    /* unused */
+    const char *directory XML_DEPRECATED_MEMBER;
+    /* Base of the array to parse */
+    const xmlChar *base;
+    /**
+     * @deprecated Use #xmlCtxtGetInputWindow
+     *
+     * Current char being parsed
+     */
+    const xmlChar *cur;
+    /* end of the array to parse */
+    const xmlChar *end;
+    /* unused */
+    int length XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current line
+     */
+    int line;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current column
+     */
+    int col;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * How many xmlChars already consumed
+     */
+    unsigned long consumed;
+    /* function to deallocate the base */
+    xmlParserInputDeallocate free XML_DEPRECATED_MEMBER;
+    /* unused */
+    const xmlChar *encoding XML_DEPRECATED_MEMBER;
+    /* the version string for entity */
+    const xmlChar *version XML_DEPRECATED_MEMBER;
+    /* Flags */
+    int flags XML_DEPRECATED_MEMBER;
+    /* an unique identifier for the entity, unused internally */
+    int id XML_DEPRECATED_MEMBER;
+    /* unused */
+    unsigned long parentConsumed XML_DEPRECATED_MEMBER;
+    /* entity, if any */
+    xmlEntity *entity XML_DEPRECATED_MEMBER;
+};
+
+/** @cond ignore */
+
+typedef struct _xmlParserNodeInfo xmlParserNodeInfo;
+typedef xmlParserNodeInfo *xmlParserNodeInfoPtr;
+
+struct _xmlParserNodeInfo {
+  const struct _xmlNode* node;
+  /* Position & line # that text that created the node begins & ends on */
+  unsigned long begin_pos;
+  unsigned long begin_line;
+  unsigned long end_pos;
+  unsigned long end_line;
+};
+
+typedef struct _xmlParserNodeInfoSeq xmlParserNodeInfoSeq;
+typedef xmlParserNodeInfoSeq *xmlParserNodeInfoSeqPtr;
+struct _xmlParserNodeInfoSeq {
+  unsigned long maximum;
+  unsigned long length;
+  xmlParserNodeInfo* buffer;
+};
+
+/*
+ * Internal type
+ */
+typedef enum {
+    XML_PARSER_EOF = -1,	/* nothing is to be parsed */
+    XML_PARSER_START = 0,	/* nothing has been parsed */
+    XML_PARSER_MISC,		/* Misc* before int subset */
+    XML_PARSER_PI,		/* Within a processing instruction */
+    XML_PARSER_DTD,		/* within some DTD content */
+    XML_PARSER_PROLOG,		/* Misc* after internal subset */
+    XML_PARSER_COMMENT,		/* within a comment */
+    XML_PARSER_START_TAG,	/* within a start tag */
+    XML_PARSER_CONTENT,		/* within the content */
+    XML_PARSER_CDATA_SECTION,	/* within a CDATA section */
+    XML_PARSER_END_TAG,		/* within a closing tag */
+    XML_PARSER_ENTITY_DECL,	/* within an entity declaration */
+    XML_PARSER_ENTITY_VALUE,	/* within an entity value in a decl */
+    XML_PARSER_ATTRIBUTE_VALUE,	/* within an attribute value */
+    XML_PARSER_SYSTEM_LITERAL,	/* within a SYSTEM value */
+    XML_PARSER_EPILOG,		/* the Misc* after the last end tag */
+    XML_PARSER_IGNORE,		/* within an IGNORED section */
+    XML_PARSER_PUBLIC_LITERAL,	/* within a PUBLIC value */
+ (code_retriever.py:193)
+2025-12-11 10:39:19,174 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:22,698 - INFO - Getting LSPFunction.Declaration for xmlNewParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:39:22,698 - INFO - Found 2 declaration for xmlNewParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:39:22,698 - WARNING - Multiple declaration found for xmlNewParserCtxt, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:39:22,699 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:40,217 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for _xmlParserCtxt (code_retriever.py:226)
+2025-12-11 10:39:40,217 - INFO - Retriever.LSP_code_retriever return [], LSPFunction.References for _xmlParserCtxt (code_retriever.py:251)
+2025-12-11 10:39:40,737 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for _xmlParserCtxt (code_retriever.py:226)
+2025-12-11 10:39:40,737 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.References for _xmlParserCtxt (code_retriever.py:251)
+2025-12-11 10:39:40,737 - INFO - Found 0 references for _xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:39:40,738 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:49,003 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:50,186 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:39:59,414 - INFO - Getting LSPFunction.References for _xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:39:59,414 - INFO - Getting LSPFunction.References for _xmlParserCtxt from cache (code_retriever.py:346)
+2025-12-11 10:39:59,414 - INFO - Found 0 references for _xmlParserCtxt with mixed retriever (code_retriever.py:330)
+2025-12-11 10:39:59,416 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:41:13,250 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlCtxtSetMaxChars (code_retriever.py:226)
+2025-12-11 10:41:13,251 - WARNING - Retriever.LSP_code_retriever: no symbol found for xmlCtxtSetMaxChars (code_retriever.py:248)
+2025-12-11 10:41:13,728 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.Declaration for xmlCtxtSetMaxChars (code_retriever.py:226)
+2025-12-11 10:41:13,729 - INFO - Retriever.Parser_code_retriever return [], LSPFunction.Declaration for xmlCtxtSetMaxChars (code_retriever.py:251)
+2025-12-11 10:41:13,729 - INFO - Found 0 declaration for xmlCtxtSetMaxChars with mixed retriever (code_retriever.py:330)
+2025-12-11 10:41:13,729 - WARNING - No declaration found for xmlCtxtSetMaxChars, please check the symbol name (code_retriever.py:458)
+2025-12-11 10:41:13,730 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:41:29,725 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for htmlSAXParseDoc (code_retriever.py:226)
+2025-12-11 10:41:29,726 - INFO - Found 2 declaration for htmlSAXParseDoc with mixed retriever (code_retriever.py:330)
+2025-12-11 10:41:29,726 - WARNING - Multiple declaration found for htmlSAXParseDoc, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:41:29,727 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:41:41,462 - INFO - Getting LSPFunction.Declaration for xmlCtxtUseOptions from cache (code_retriever.py:346)
+2025-12-11 10:41:41,462 - INFO - Found 2 declaration for xmlCtxtUseOptions with mixed retriever (code_retriever.py:330)
+2025-12-11 10:41:41,462 - WARNING - Multiple declaration found for xmlCtxtUseOptions, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:41:41,464 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:41:53,305 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:41:57,756 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:42:03,947 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:42:05,280 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:42:09,904 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:42:36,200 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for htmlSAXHandler (code_retriever.py:226)
+2025-12-11 10:42:36,201 - INFO - Found 2 declaration for htmlSAXHandler with mixed retriever (code_retriever.py:330)
+2025-12-11 10:42:36,201 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:42:43,104 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:43:02,282 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for htmlSAXParseDoc (code_retriever.py:226)
+2025-12-11 10:43:02,282 - INFO - Found 2 definition for htmlSAXParseDoc with mixed retriever (code_retriever.py:330)
+2025-12-11 10:43:02,282 - WARNING - Multiple definition found for htmlSAXParseDoc, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:43:02,283 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:43:20,603 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlFuzzMemSetup (code_retriever.py:226)
+2025-12-11 10:43:20,603 - INFO - Found 2 declaration for xmlFuzzMemSetup with mixed retriever (code_retriever.py:330)
+2025-12-11 10:43:20,603 - WARNING - Multiple declaration found for xmlFuzzMemSetup, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:43:20,604 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:43:55,240 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for xmlSAX2Characters (code_retriever.py:226)
+2025-12-11 10:43:55,240 - INFO - Found 2 definition for xmlSAX2Characters with mixed retriever (code_retriever.py:330)
+2025-12-11 10:43:55,240 - WARNING - Multiple definition found for xmlSAX2Characters, please check the symbol name (code_retriever.py:456)
+2025-12-11 10:43:55,241 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:44:07,227 - INFO - Getting LSPFunction.References for maxAmpl from cache (code_retriever.py:346)
+2025-12-11 10:44:07,228 - INFO - Found 7 references for maxAmpl with mixed retriever (code_retriever.py:330)
+2025-12-11 10:44:07,229 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 10:44:46,409 - INFO - Fix end for draft_fix3. (fixer.py:58)
+2025-12-11 10:45:04,687 - INFO - Compile Start for draft_fix4 using regexp. (compilation.py:177)
+2025-12-11 10:45:28,649 - INFO - Compile End for draft_fix4 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 10:45:28,675 - INFO - Run 4th Fuzzer for run1_akcrogdkrrpitbux:regexp (validation.py:60)
+2025-12-11 10:46:38,749 - INFO - Fuzz res:No Error, [] for run1_akcrogdkrrpitbux:regexp (validation.py:62)
+2025-12-11 10:46:38,751 - INFO - Semantic check passed (generation.py:70)
+2025-12-11 10:46:49,927 - INFO - remove the docker image for run1_akcrogdkrrpitbux (fuzzenv.py:288)

@@ -1,0 +1,343 @@
+2025-12-11 12:15:51,222 - INFO - Function: void xmlParserInputGetWindow(xmlParserInput * input, const xmlChar ** startOut, int * sizeInOut, int * offsetOut) (fuzzenv.py:141)
+2025-12-11 12:15:51,222 - INFO - Create a new project: run1_gnwvwekocleprpuf (fuzzenv.py:142)
+2025-12-11 12:15:54,249 - INFO - Build Image a new project: run1_gnwvwekocleprpuf, build res:True (fuzzenv.py:155)
+2025-12-11 12:16:14,577 - INFO - bear res: ['  adding: vid-8 (deflated 65%)', '  adding: vid-9 (deflated 66%)'] (code_retriever.py:59)
+2025-12-11 12:16:22,360 - INFO - Saved harness_fuzzer_pairs.json, content:{'regexp': '/src/libxml2/fuzz/regexp.c', 'uri': '/src/libxml2/fuzz/uri.c', 'html': '/src/libxml2/fuzz/html.c', 'xml': '/src/libxml2/fuzz/xml.c', 'reader': '/src/libxml2/fuzz/reader.c', 'valid': '/src/libxml2/fuzz/valid.c', 'xinclude': '/src/libxml2/fuzz/xinclude.c', 'api': '/src/libxml2/fuzz/api.c', 'xpath': '/src/libxml2/fuzz/xpath.c', 'schema': '/src/libxml2/fuzz/schema.c', 'lint': '/src/libxml2/fuzz/lint.c'} (fuzzenv.py:274)
+2025-12-11 12:16:23,558 - INFO - Using agent for header files (generation.py:138)
+2025-12-11 12:16:23,558 - INFO - Using project for example source (generation.py:290)
+2025-12-11 12:16:34,553 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.References for xmlParserInputGetWindow (code_retriever.py:226)
+2025-12-11 12:16:34,554 - INFO - Found 3 references for xmlParserInputGetWindow with lsp retriever (code_retriever.py:330)
+2025-12-11 12:16:35,097 - INFO - Calling Retriever.Parser_code_retriever to get LSPFunction.References for xmlParserInputGetWindow (code_retriever.py:226)
+2025-12-11 12:16:35,097 - INFO - Found 2 references for xmlParserInputGetWindow with parser retriever (code_retriever.py:330)
+2025-12-11 12:16:35,097 - INFO - Using rank mode for example selection (generation.py:300)
+2025-12-11 12:17:00,984 - INFO - Found 2 usage in the project after removing harness. (generation.py:305)
+2025-12-11 12:17:00,985 - INFO - Use 1 examples. (generation.py:215)
+2025-12-11 12:17:13,689 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Declaration for xmlParserInputGetWindow (code_retriever.py:226)
+2025-12-11 12:17:13,689 - INFO - Found 2 declaration for xmlParserInputGetWindow with lsp retriever (code_retriever.py:330)
+2025-12-11 12:17:25,660 - INFO - Calling Retriever.LSP_code_retriever to get LSPFunction.Definition for xmlParserInputGetWindow (code_retriever.py:226)
+2025-12-11 12:17:25,660 - INFO - Found 2 definition for xmlParserInputGetWindow with mixed retriever (code_retriever.py:330)
+2025-12-11 12:17:25,660 - WARNING - Multiple definition found for xmlParserInputGetWindow, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:17:31,615 - INFO - Getting LSPFunction.Declaration for xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:17:31,615 - INFO - Found 1 declaration for xmlParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 12:17:32,574 - INFO - Getting LSPFunction.Declaration for _xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:17:32,574 - INFO - Found 2 declaration for _xmlParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 12:17:32,574 - WARNING - Multiple declaration found for _xmlParserInput, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:17:33,538 - INFO - Getting LSPFunction.Declaration for xmlGetUTF8Char from cache (code_retriever.py:346)
+2025-12-11 12:17:33,538 - INFO - Found 2 declaration for xmlGetUTF8Char with mixed retriever (code_retriever.py:330)
+2025-12-11 12:17:33,538 - WARNING - Multiple declaration found for xmlGetUTF8Char, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:18:32,943 - INFO - Generate Draft Code. (generator.py:72)
+2025-12-11 12:18:32,945 - INFO - Compile Start for draft_fix0 using regexp. (compilation.py:177)
+2025-12-11 12:18:55,686 - INFO - Compile End for draft_fix0 using regexp. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:18:55,688 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using regexp. (compilation.py:211)
+2025-12-11 12:18:55,689 - INFO - Compile Start for draft_fix0 using uri. (compilation.py:177)
+2025-12-11 12:19:15,605 - INFO - Compile End for draft_fix0 using uri. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:19:15,608 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using uri. (compilation.py:211)
+2025-12-11 12:19:15,608 - INFO - Compile Start for draft_fix0 using html. (compilation.py:177)
+2025-12-11 12:19:35,413 - INFO - Compile End for draft_fix0 using html. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:19:35,416 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using html. (compilation.py:211)
+2025-12-11 12:19:35,416 - INFO - Compile Start for draft_fix0 using xml. (compilation.py:177)
+2025-12-11 12:20:01,201 - INFO - Compile End for draft_fix0 using xml. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:20:01,203 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using xml. (compilation.py:211)
+2025-12-11 12:20:01,203 - INFO - Compile Start for draft_fix0 using reader. (compilation.py:177)
+2025-12-11 12:20:22,494 - INFO - Compile End for draft_fix0 using reader. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:20:22,497 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using reader. (compilation.py:211)
+2025-12-11 12:20:22,497 - INFO - Compile Start for draft_fix0 using valid. (compilation.py:177)
+2025-12-11 12:20:44,305 - INFO - Compile End for draft_fix0 using valid. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:20:44,307 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using valid. (compilation.py:211)
+2025-12-11 12:20:44,307 - INFO - Compile Start for draft_fix0 using xinclude. (compilation.py:177)
+2025-12-11 12:21:06,105 - INFO - Compile End for draft_fix0 using xinclude. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:21:06,109 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using xinclude. (compilation.py:211)
+2025-12-11 12:21:06,109 - INFO - Compile Start for draft_fix0 using api. (compilation.py:177)
+2025-12-11 12:21:27,047 - INFO - Compile End for draft_fix0 using api. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:21:27,049 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using api. (compilation.py:211)
+2025-12-11 12:21:27,049 - INFO - Compile Start for draft_fix0 using xpath. (compilation.py:177)
+2025-12-11 12:21:57,585 - INFO - Compile End for draft_fix0 using xpath. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:21:57,587 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using xpath. (compilation.py:211)
+2025-12-11 12:21:57,587 - INFO - Compile Start for draft_fix0 using schema. (compilation.py:177)
+2025-12-11 12:22:16,962 - INFO - Compile End for draft_fix0 using schema. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:22:16,964 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using schema. (compilation.py:211)
+2025-12-11 12:22:16,964 - INFO - Compile Start for draft_fix0 using lint. (compilation.py:177)
+2025-12-11 12:22:35,908 - INFO - Compile End for draft_fix0 using lint. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:22:35,911 - INFO - Compile End, Res: CompileResults.MissingHeaderError for draft_fix0 using lint. (compilation.py:211)
+2025-12-11 12:22:36,301 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:22:40,410 - INFO - Getting LSPFunction.Declaration for xmlParserInputGetWindow from cache (code_retriever.py:346)
+2025-12-11 12:22:40,410 - INFO - Found 2 declaration for xmlParserInputGetWindow with lsp retriever (code_retriever.py:330)
+2025-12-11 12:22:40,411 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:22:45,404 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:22:52,325 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:22:53,575 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:22:58,949 - WARNING - /**
+ * @file
+ * 
+ * @brief Validating XML 1.0 parser
+ * 
+ * Interfaces, constants and types related to the XML parser.
+ *
+ * @copyright See Copyright for the status of this software.
+ *
+ * @author Daniel Veillard
+ */
+
+#ifndef __XML_PARSER_H__
+#define __XML_PARSER_H__
+
+#include <libxml/xmlversion.h>
+/** @cond ignore */
+#define XML_TREE_INTERNALS
+/** @endcond */
+#include <libxml/tree.h>
+#undef XML_TREE_INTERNALS
+#include <libxml/dict.h>
+#include <libxml/hash.h>
+#include <libxml/valid.h>
+#include <libxml/entities.h>
+#include <libxml/xmlerror.h>
+#include <libxml/xmlstring.h>
+#include <libxml/xmlmemory.h>
+#include <libxml/encoding.h>
+#include <libxml/xmlIO.h>
+/* for compatibility */
+#include <libxml/SAX2.h>
+#include <libxml/threads.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * The default version of XML used: 1.0
+ */
+#define XML_DEFAULT_VERSION	"1.0"
+
+/**
+ * Status after parsing a document
+ */
+typedef enum {
+    /** not well-formed */
+    XML_STATUS_NOT_WELL_FORMED          = (1 << 0),
+    /** not namespace-well-formed */
+    XML_STATUS_NOT_NS_WELL_FORMED       = (1 << 1),
+    /** DTD validation failed */
+    XML_STATUS_DTD_VALIDATION_FAILED    = (1 << 2),
+    /** catastrophic failure like OOM or I/O error */
+    XML_STATUS_CATASTROPHIC_ERROR       = (1 << 3)
+} xmlParserStatus;
+
+/**
+ * Resource type for resource loaders
+ */
+typedef enum {
+    /** unknown */
+    XML_RESOURCE_UNKNOWN = 0,
+    /** main document */
+    XML_RESOURCE_MAIN_DOCUMENT,
+    /** external DTD */
+    XML_RESOURCE_DTD,
+    /** external general entity */
+    XML_RESOURCE_GENERAL_ENTITY,
+    /** external parameter entity */
+    XML_RESOURCE_PARAMETER_ENTITY,
+    /** XIncluded document */
+    XML_RESOURCE_XINCLUDE,
+    /** XIncluded text */
+    XML_RESOURCE_XINCLUDE_TEXT
+} xmlResourceType;
+
+/**
+ * Flags for parser input
+ */
+typedef enum {
+    /** The input buffer won't be changed during parsing. */
+    XML_INPUT_BUF_STATIC            = (1 << 1),
+    /** The input buffer is zero-terminated. (Note that the zero
+        byte shouldn't be included in buffer size.) */
+    XML_INPUT_BUF_ZERO_TERMINATED   = (1 << 2),
+    /** Uncompress gzipped file input */
+    XML_INPUT_UNZIP                 = (1 << 3),
+    /** Allow network access. Unused internally. */
+    XML_INPUT_NETWORK               = (1 << 4),
+    /** Allow system catalog to resolve URIs. */
+    XML_INPUT_USE_SYS_CATALOG       = (1 << 5)
+} xmlParserInputFlags;
+
+/* Deprecated */
+typedef void (* xmlParserInputDeallocate)(xmlChar *str);
+
+/**
+ * Parser input
+ */
+struct _xmlParserInput {
+    /* Input buffer */
+    xmlParserInputBuffer *buf XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * The filename or URI, if any
+     */
+    const char *filename;
+    /* unused */
+    const char *directory XML_DEPRECATED_MEMBER;
+    /* Base of the array to parse */
+    const xmlChar *base;
+    /**
+     * @deprecated Use #xmlCtxtGetInputWindow
+     *
+     * Current char being parsed
+     */
+    const xmlChar *cur;
+    /* end of the array to parse */
+    const xmlChar *end;
+    /* unused */
+    int length XML_DEPRECATED_MEMBER;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current line
+     */
+    int line;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * Current column
+     */
+    int col;
+    /**
+     * @deprecated Use #xmlCtxtGetInputPosition
+     *
+     * How many xmlChars already consumed
+     */
+    unsigned long consumed;
+    /* function to deallocate the base */
+    xmlParserInputDeallocate free XML_DEPRECATED_MEMBER;
+    /* unused */
+    const xmlChar *encoding XML_DEPRECATED_MEMBER;
+    /* the version string for entity */
+    const xmlChar *version XML_DEPRECATED_MEMBER;
+    /* Flags */
+    int flags XML_DEPRECATED_MEMBER;
+    /* an unique identifier for the entity, unused internally */
+    int id XML_DEPRECATED_MEMBER;
+    /* unused */
+    unsigned long parentConsumed XML_DEPRECATED_MEMBER;
+    /* entity, if any */
+    xmlEntity *entity XML_DEPRECATED_MEMBER;
+};
+
+/** @cond ignore */
+
+typedef struct _xmlParserNodeInfo xmlParserNodeInfo;
+typedef xmlParserNodeInfo *xmlParserNodeInfoPtr;
+
+struct _xmlParserNodeInfo {
+  const struct _xmlNode* node;
+  /* Position & line # that text that created the node begins & ends on */
+  unsigned long begin_pos;
+  unsigned long begin_line;
+  unsigned long end_pos;
+  unsigned long end_line;
+};
+
+typedef struct _xmlParserNodeInfoSeq xmlParserNodeInfoSeq;
+typedef xmlParserNodeInfoSeq *xmlParserNodeInfoSeqPtr;
+struct _xmlParserNodeInfoSeq {
+  unsigned long maximum;
+  unsigned long length;
+  xmlParserNodeInfo* buffer;
+};
+
+/*
+ * Internal type
+ */
+typedef enum {
+    XML_PARSER_EOF = -1,	/* nothing is to be parsed */
+    XML_PARSER_START = 0,	/* nothing has been parsed */
+    XML_PARSER_MISC,		/* Misc* before int subset */
+    XML_PARSER_PI,		/* Within a processing instruction */
+    XML_PARSER_DTD,		/* within some DTD content */
+    XML_PARSER_PROLOG,		/* Misc* after internal subset */
+    XML_PARSER_COMMENT,		/* within a comment */
+    XML_PARSER_START_TAG,	/* within a start tag */
+    XML_PARSER_CONTENT,		/* within the content */
+    XML_PARSER_CDATA_SECTION,	/* within a CDATA section */
+    XML_PARSER_END_TAG,		/* within a closing tag */
+    XML_PARSER_ENTITY_DECL,	/* within an entity declaration */
+    XML_PARSER_ENTITY_VALUE,	/* within an entity value in a decl */
+    XML_PARSER_ATTRIBUTE_VALUE,	/* within an attribute value */
+    XML_PARSER_SYSTEM_LITERAL,	/* within a SYSTEM value */
+    XML_PARSER_EPILOG,		/* the Misc* after the last end tag */
+    XML_PARSER_IGNORE,		/* within an IGNORED section */
+    XML_PARSER_PUBLIC_LITERAL,	/* within a PUBLIC value */
+ (code_retriever.py:193)
+2025-12-11 12:22:58,950 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:05,584 - INFO - Getting LSPFunction.Declaration for xmlParserInputGetWindow from cache (code_retriever.py:346)
+2025-12-11 12:23:05,584 - INFO - Found 2 declaration for xmlParserInputGetWindow with mixed retriever (code_retriever.py:330)
+2025-12-11 12:23:05,584 - WARNING - Multiple declaration found for xmlParserInputGetWindow, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:23:05,585 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:07,347 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:08,771 - INFO - Getting LSPFunction.References for XML_HIDDEN from cache (code_retriever.py:346)
+2025-12-11 12:23:08,771 - INFO - Getting LSPFunction.References for XML_HIDDEN from cache (code_retriever.py:346)
+2025-12-11 12:23:08,772 - INFO - Found 0 references for XML_HIDDEN with mixed retriever (code_retriever.py:330)
+2025-12-11 12:23:08,772 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:14,236 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:15,610 - WARNING - sed: read error on /src/libxml2/include/libxml: Is a directory
+ (code_retriever.py:193)
+2025-12-11 12:23:15,610 - INFO - Fix start for draft_fix0. (fixer.py:27)
+2025-12-11 12:23:59,711 - INFO - Fix end for draft_fix0. (fixer.py:58)
+2025-12-11 12:24:17,940 - INFO - Compile Start for draft_fix1 using regexp. (compilation.py:177)
+2025-12-11 12:24:36,235 - INFO - Compile End for draft_fix1 using regexp. Res: CompileResults.CodeError (compilation.py:179)
+2025-12-11 12:24:36,237 - INFO - Compile End, Res: CompileResults.CodeError for draft_fix1 using regexp. (compilation.py:211)
+2025-12-11 12:24:36,239 - INFO - Fix start for draft_fix1. (fixer.py:27)
+2025-12-11 12:25:18,096 - INFO - Fix end for draft_fix1. (fixer.py:58)
+2025-12-11 12:25:41,198 - INFO - Compile Start for draft_fix2 using regexp. (compilation.py:177)
+2025-12-11 12:26:04,434 - INFO - Compile End for draft_fix2 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 12:26:04,452 - INFO - Run 2th Fuzzer for run1_gnwvwekocleprpuf:regexp (validation.py:60)
+2025-12-11 12:26:14,469 - INFO - Fuzz res:Crash, ['\x1b[1m\x1b[31m==13==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fce8e3ba840 at pc 0x55d5b0fea4cc bp 0x7ffcc83a2a10 sp 0x7ffcc83a2a08'] for run1_gnwvwekocleprpuf:regexp (validation.py:62)
+2025-12-11 12:26:14,471 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:26:16,029 - INFO - Getting LSPFunction.Definition for xmlParserInputGetWindow from cache (code_retriever.py:346)
+2025-12-11 12:26:16,029 - INFO - Found 2 definition for xmlParserInputGetWindow with mixed retriever (code_retriever.py:330)
+2025-12-11 12:26:16,029 - WARNING - Multiple definition found for xmlParserInputGetWindow, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:26:16,030 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:26:17,381 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:26:24,016 - INFO - Getting LSPFunction.Definition for xmlGetUTF8Char from cache (code_retriever.py:346)
+2025-12-11 12:26:24,016 - INFO - Found 2 definition for xmlGetUTF8Char with mixed retriever (code_retriever.py:330)
+2025-12-11 12:26:24,016 - WARNING - Multiple definition found for xmlGetUTF8Char, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:26:24,016 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:26:25,527 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:27:00,285 - INFO - Getting LSPFunction.Declaration for xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:27:00,286 - INFO - Found 1 declaration for xmlParserInput with lsp retriever (code_retriever.py:330)
+2025-12-11 12:27:00,286 - INFO - Getting LSPFunction.Declaration for _xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:27:00,286 - INFO - Found 2 declaration for _xmlParserInput with lsp retriever (code_retriever.py:330)
+2025-12-11 12:27:00,286 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:27:01,361 - INFO - Fix start for draft_fix2. (fixer.py:27)
+2025-12-11 12:28:35,965 - INFO - Fix end for draft_fix2. (fixer.py:58)
+2025-12-11 12:29:10,011 - INFO - Compile Start for draft_fix3 using regexp. (compilation.py:177)
+2025-12-11 12:29:32,849 - INFO - Compile End for draft_fix3 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 12:29:32,865 - INFO - Run 3th Fuzzer for run1_gnwvwekocleprpuf:regexp (validation.py:60)
+2025-12-11 12:29:42,883 - INFO - Fuzz res:Crash, ['\x1b[1m\x1b[31m==13==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7f329ff26840 at pc 0x5654bf05553c bp 0x7ffee4b74d90 sp 0x7ffee4b74d88'] for run1_gnwvwekocleprpuf:regexp (validation.py:62)
+2025-12-11 12:29:42,885 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:29:44,755 - INFO - Getting LSPFunction.Definition for xmlParserInputGetWindow from cache (code_retriever.py:346)
+2025-12-11 12:29:44,755 - INFO - Found 2 definition for xmlParserInputGetWindow with mixed retriever (code_retriever.py:330)
+2025-12-11 12:29:44,755 - WARNING - Multiple definition found for xmlParserInputGetWindow, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:29:44,756 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:29:46,727 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:30:00,084 - INFO - Getting LSPFunction.Definition for xmlGetUTF8Char from cache (code_retriever.py:346)
+2025-12-11 12:30:00,084 - INFO - Found 2 definition for xmlGetUTF8Char with mixed retriever (code_retriever.py:330)
+2025-12-11 12:30:00,084 - WARNING - Multiple definition found for xmlGetUTF8Char, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:30:00,085 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:30:02,051 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:30:37,000 - INFO - Getting LSPFunction.Definition for _xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:30:37,001 - INFO - Found 2 definition for _xmlParserInput with mixed retriever (code_retriever.py:330)
+2025-12-11 12:30:37,001 - WARNING - Multiple definition found for _xmlParserInput, please check the symbol name (code_retriever.py:456)
+2025-12-11 12:30:37,001 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:31:23,733 - INFO - Getting LSPFunction.Declaration for xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:31:23,733 - INFO - Found 1 declaration for xmlParserInput with lsp retriever (code_retriever.py:330)
+2025-12-11 12:31:23,733 - INFO - Getting LSPFunction.Declaration for _xmlParserInput from cache (code_retriever.py:346)
+2025-12-11 12:31:23,733 - INFO - Found 2 declaration for _xmlParserInput with lsp retriever (code_retriever.py:330)
+2025-12-11 12:31:23,734 - INFO - Fix start for draft_fix3. (fixer.py:27)
+2025-12-11 12:32:20,909 - INFO - Fix end for draft_fix3. (fixer.py:58)
+2025-12-11 12:32:38,412 - INFO - Compile Start for draft_fix4 using regexp. (compilation.py:177)
+2025-12-11 12:33:04,614 - INFO - Compile End for draft_fix4 using regexp. Res: CompileResults.Success (compilation.py:179)
+2025-12-11 12:33:04,631 - INFO - Run 4th Fuzzer for run1_gnwvwekocleprpuf:regexp (validation.py:60)
+2025-12-11 12:34:14,701 - INFO - Fuzz res:No Error, [] for run1_gnwvwekocleprpuf:regexp (validation.py:62)
+2025-12-11 12:34:14,703 - INFO - Semantic check passed (generation.py:70)
+2025-12-11 12:34:25,560 - INFO - remove the docker image for run1_gnwvwekocleprpuf (fuzzenv.py:288)
