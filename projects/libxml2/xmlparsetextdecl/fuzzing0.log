@@ -1,0 +1,576 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlparsetextdecl/run1_gsqjjswbnnwzucls/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_gsqjjswbnnwzucls:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47233 inline 8-bit counters): 47233 [0x55899d1b3588, 0x55899d1bee09), 
+INFO: Loaded 1 PC tables (47233 PCs): 47233 [0x55899d1bee10,0x55899d277620), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 33Mb
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+Entity: line 1: parser error : Text declaration '<?xml' required
+
+^
+#122	INITED cov: 213 ft: 219 corp: 2/25b exec/s: 0 rss: 37Mb
+#161	REDUCE cov: 213 ft: 219 corp: 2/23b lim: 4096 exec/s: 0 rss: 38Mb L: 11/12 MS: 4 ChangeByte-ChangeASCIIInt-ChangeASCIIInt-EraseBytes-
+#167	REDUCE cov: 213 ft: 219 corp: 2/21b lim: 4096 exec/s: 0 rss: 38Mb L: 9/12 MS: 1 EraseBytes-
+#192	REDUCE cov: 219 ft: 225 corp: 3/48b lim: 4096 exec/s: 0 rss: 38Mb L: 27/27 MS: 5 ChangeASCIIInt-CrossOver-ShuffleBytes-ChangeByte-InsertRepeatedBytes-
+#214	REDUCE cov: 219 ft: 230 corp: 4/62b lim: 4096 exec/s: 0 rss: 38Mb L: 14/27 MS: 2 ManualDict-ShuffleBytes- DE: "\\p{C}"-
+#218	NEW    cov: 223 ft: 234 corp: 5/89b lim: 4096 exec/s: 0 rss: 38Mb L: 27/27 MS: 4 ChangeASCIIInt-PersAutoDict-CopyPart-ChangeByte- DE: "\\p{C}"-
+#221	NEW    cov: 223 ft: 239 corp: 6/194b lim: 4096 exec/s: 0 rss: 38Mb L: 105/105 MS: 3 ChangeASCIIInt-ShuffleBytes-InsertRepeatedBytes-
+#229	REDUCE cov: 223 ft: 239 corp: 6/156b lim: 4096 exec/s: 0 rss: 38Mb L: 67/67 MS: 3 ShuffleBytes-ShuffleBytes-EraseBytes-
+#245	REDUCE cov: 223 ft: 239 corp: 6/130b lim: 4096 exec/s: 0 rss: 38Mb L: 41/41 MS: 1 EraseBytes-
+#280	NEW    cov: 223 ft: 244 corp: 7/164b lim: 4096 exec/s: 0 rss: 38Mb L: 34/41 MS: 5 ChangeBit-ChangeByte-ShuffleBytes-CopyPart-ManualDict- DE: "\\p{IsKangxiRadicals}"-
+#283	NEW    cov: 223 ft: 246 corp: 8/179b lim: 4096 exec/s: 0 rss: 38Mb L: 15/41 MS: 3 InsertByte-ChangeByte-ChangeBit-
+#293	NEW    cov: 223 ft: 251 corp: 9/200b lim: 4096 exec/s: 0 rss: 38Mb L: 21/41 MS: 5 CrossOver-ChangeBit-InsertByte-ChangeByte-CopyPart-
+#314	REDUCE cov: 223 ft: 251 corp: 9/195b lim: 4096 exec/s: 0 rss: 38Mb L: 36/36 MS: 1 EraseBytes-
+#332	NEW    cov: 223 ft: 256 corp: 10/220b lim: 4096 exec/s: 0 rss: 39Mb L: 25/36 MS: 3 ChangeBinInt-CopyPart-PersAutoDict- DE: "\\p{IsKangxiRadicals}"-
+#352	NEW    cov: 224 ft: 257 corp: 11/281b lim: 4096 exec/s: 0 rss: 39Mb L: 61/61 MS: 5 ChangeASCIIInt-CrossOver-PersAutoDict-PersAutoDict-ChangeBinInt- DE: "\\p{IsKangxiRadicals}"-"\\p{IsKangxiRadicals}"-
+#353	REDUCE cov: 224 ft: 257 corp: 11/271b lim: 4096 exec/s: 0 rss: 39Mb L: 26/61 MS: 1 EraseBytes-
+#356	NEW    cov: 225 ft: 258 corp: 12/396b lim: 4096 exec/s: 0 rss: 39Mb L: 125/125 MS: 3 ChangeByte-PersAutoDict-InsertRepeatedBytes- DE: "\\p{IsKangxiRadicals}"-
+#413	REDUCE cov: 225 ft: 261 corp: 13/402b lim: 4096 exec/s: 0 rss: 39Mb L: 6/125 MS: 2 ShuffleBytes-EraseBytes-
+#414	REDUCE cov: 225 ft: 261 corp: 13/398b lim: 4096 exec/s: 0 rss: 39Mb L: 5/125 MS: 1 EraseBytes-
+#437	REDUCE cov: 225 ft: 261 corp: 13/389b lim: 4096 exec/s: 0 rss: 39Mb L: 12/125 MS: 3 CopyPart-ChangeBinInt-EraseBytes-
+#553	REDUCE cov: 225 ft: 261 corp: 13/383b lim: 4096 exec/s: 0 rss: 39Mb L: 20/125 MS: 1 EraseBytes-
+#590	REDUCE cov: 225 ft: 261 corp: 13/381b lim: 4096 exec/s: 0 rss: 39Mb L: 3/125 MS: 2 ChangeBinInt-EraseBytes-
+#606	REDUCE cov: 226 ft: 262 corp: 14/383b lim: 4096 exec/s: 0 rss: 39Mb L: 2/125 MS: 1 EraseBytes-
+#642	REDUCE cov: 226 ft: 262 corp: 14/382b lim: 4096 exec/s: 0 rss: 39Mb L: 2/125 MS: 1 EraseBytes-
+#646	REDUCE cov: 226 ft: 262 corp: 14/379b lim: 4096 exec/s: 0 rss: 39Mb L: 3/125 MS: 4 ChangeByte-CopyPart-ChangeByte-EraseBytes-
+#654	REDUCE cov: 226 ft: 262 corp: 14/337b lim: 4096 exec/s: 0 rss: 39Mb L: 83/83 MS: 3 ChangeBit-EraseBytes-PersAutoDict- DE: "\\p{IsKangxiRadicals}"-
+#671	REDUCE cov: 226 ft: 262 corp: 14/326b lim: 4096 exec/s: 0 rss: 39Mb L: 50/83 MS: 2 ChangeBit-EraseBytes-
+#743	REDUCE cov: 226 ft: 262 corp: 14/320b lim: 4096 exec/s: 0 rss: 40Mb L: 19/83 MS: 2 EraseBytes-PersAutoDict- DE: "\\p{C}"-
+#745	REDUCE cov: 226 ft: 262 corp: 14/313b lim: 4096 exec/s: 0 rss: 40Mb L: 20/83 MS: 2 ShuffleBytes-EraseBytes-
+#832	REDUCE cov: 226 ft: 262 corp: 14/312b lim: 4096 exec/s: 0 rss: 40Mb L: 19/83 MS: 2 CrossOver-EraseBytes-
+#839	REDUCE cov: 226 ft: 262 corp: 14/306b lim: 4096 exec/s: 0 rss: 40Mb L: 13/83 MS: 2 CopyPart-EraseBytes-
+#886	REDUCE cov: 226 ft: 262 corp: 14/301b lim: 4096 exec/s: 0 rss: 40Mb L: 10/83 MS: 2 ChangeBit-EraseBytes-
+#1012	REDUCE cov: 226 ft: 262 corp: 14/296b lim: 4096 exec/s: 0 rss: 40Mb L: 5/83 MS: 1 EraseBytes-
+#1013	REDUCE cov: 226 ft: 262 corp: 14/290b lim: 4096 exec/s: 0 rss: 41Mb L: 8/83 MS: 1 EraseBytes-
+#1037	REDUCE cov: 226 ft: 262 corp: 14/289b lim: 4096 exec/s: 0 rss: 41Mb L: 4/83 MS: 4 CopyPart-ChangeBit-ShuffleBytes-EraseBytes-
+#1118	REDUCE cov: 226 ft: 262 corp: 14/270b lim: 4096 exec/s: 0 rss: 41Mb L: 31/83 MS: 1 EraseBytes-
+#1121	REDUCE cov: 226 ft: 262 corp: 14/268b lim: 4096 exec/s: 0 rss: 41Mb L: 17/83 MS: 3 CopyPart-ManualDict-EraseBytes- DE: "()"-
+#1127	REDUCE cov: 226 ft: 262 corp: 14/259b lim: 4096 exec/s: 0 rss: 41Mb L: 11/83 MS: 1 EraseBytes-
+#1141	REDUCE cov: 226 ft: 262 corp: 14/258b lim: 4096 exec/s: 0 rss: 41Mb L: 11/83 MS: 4 CopyPart-CopyPart-ChangeBit-EraseBytes-
+#1307	REDUCE cov: 226 ft: 262 corp: 14/256b lim: 4096 exec/s: 0 rss: 41Mb L: 2/83 MS: 1 EraseBytes-
+#1429	REDUCE cov: 226 ft: 262 corp: 14/249b lim: 4096 exec/s: 0 rss: 42Mb L: 24/83 MS: 2 ManualDict-EraseBytes- DE: "\\p{IsMongolian}"-
+#1437	REDUCE cov: 226 ft: 262 corp: 14/247b lim: 4096 exec/s: 0 rss: 42Mb L: 32/83 MS: 3 ChangeBit-ChangeASCIIInt-EraseBytes-
+#1514	REDUCE cov: 226 ft: 262 corp: 14/246b lim: 4096 exec/s: 0 rss: 42Mb L: 1/83 MS: 2 ChangeBit-EraseBytes-
+#1525	REDUCE cov: 226 ft: 262 corp: 14/243b lim: 4096 exec/s: 0 rss: 42Mb L: 10/83 MS: 1 EraseBytes-
+#1577	REDUCE cov: 226 ft: 262 corp: 14/240b lim: 4096 exec/s: 0 rss: 42Mb L: 8/83 MS: 2 InsertByte-EraseBytes-
+#1624	REDUCE cov: 226 ft: 262 corp: 14/237b lim: 4096 exec/s: 0 rss: 42Mb L: 5/83 MS: 2 CrossOver-EraseBytes-
+#1641	REDUCE cov: 226 ft: 262 corp: 14/235b lim: 4096 exec/s: 0 rss: 42Mb L: 9/83 MS: 2 InsertByte-EraseBytes-
+#1658	REDUCE cov: 226 ft: 262 corp: 14/234b lim: 4096 exec/s: 0 rss: 42Mb L: 9/83 MS: 2 ChangeBit-EraseBytes-
+#1750	REDUCE cov: 226 ft: 262 corp: 14/232b lim: 4096 exec/s: 0 rss: 43Mb L: 7/83 MS: 2 CrossOver-EraseBytes-
+#1806	REDUCE cov: 226 ft: 262 corp: 14/231b lim: 4096 exec/s: 0 rss: 43Mb L: 1/83 MS: 1 EraseBytes-
+#1827	REDUCE cov: 226 ft: 262 corp: 14/226b lim: 4096 exec/s: 0 rss: 43Mb L: 22/83 MS: 1 EraseBytes-
+#1838	REDUCE cov: 226 ft: 262 corp: 14/225b lim: 4096 exec/s: 0 rss: 43Mb L: 1/83 MS: 1 EraseBytes-
+#1910	REDUCE cov: 227 ft: 263 corp: 15/229b lim: 4096 exec/s: 0 rss: 43Mb L: 4/83 MS: 2 EraseBytes-ChangeBinInt-
+#1931	REDUCE cov: 227 ft: 263 corp: 15/227b lim: 4096 exec/s: 0 rss: 43Mb L: 7/83 MS: 1 EraseBytes-
+#2014	REDUCE cov: 227 ft: 263 corp: 15/226b lim: 4096 exec/s: 0 rss: 43Mb L: 23/83 MS: 3 ChangeBinInt-CopyPart-EraseBytes-
+#2020	REDUCE cov: 228 ft: 264 corp: 16/228b lim: 4096 exec/s: 0 rss: 43Mb L: 2/83 MS: 1 InsertByte-
+#2037	REDUCE cov: 228 ft: 264 corp: 16/223b lim: 4096 exec/s: 0 rss: 43Mb L: 17/83 MS: 2 PersAutoDict-EraseBytes- DE: "()"-
+#2364	REDUCE cov: 228 ft: 264 corp: 16/221b lim: 4096 exec/s: 0 rss: 44Mb L: 5/83 MS: 2 ShuffleBytes-EraseBytes-
+#2390	REDUCE cov: 228 ft: 264 corp: 16/214b lim: 4096 exec/s: 0 rss: 44Mb L: 10/83 MS: 1 EraseBytes-
+#2426	REDUCE cov: 228 ft: 264 corp: 16/210b lim: 4096 exec/s: 0 rss: 45Mb L: 6/83 MS: 1 EraseBytes-
+#2586	REDUCE cov: 228 ft: 264 corp: 16/195b lim: 4096 exec/s: 0 rss: 45Mb L: 8/83 MS: 5 EraseBytes-ChangeBinInt-EraseBytes-ChangeByte-ChangeBinInt-
+#2617	REDUCE cov: 228 ft: 264 corp: 16/193b lim: 4096 exec/s: 0 rss: 45Mb L: 5/83 MS: 1 EraseBytes-
+#2618	REDUCE cov: 228 ft: 264 corp: 16/192b lim: 4096 exec/s: 0 rss: 45Mb L: 7/83 MS: 1 EraseBytes-
+#2700	REDUCE cov: 228 ft: 264 corp: 16/189b lim: 4096 exec/s: 0 rss: 45Mb L: 4/83 MS: 2 ChangeBit-EraseBytes-
+#2838	REDUCE cov: 228 ft: 264 corp: 16/188b lim: 4096 exec/s: 0 rss: 46Mb L: 4/83 MS: 3 CrossOver-ChangeBit-EraseBytes-
+#2862	REDUCE cov: 229 ft: 265 corp: 17/226b lim: 4096 exec/s: 0 rss: 46Mb L: 38/83 MS: 4 PersAutoDict-ChangeBit-ManualDict-ChangeByte- DE: "()"-"\\p{IsCJKCompatibilityIdeographs}"-
+#3053	REDUCE cov: 229 ft: 265 corp: 17/220b lim: 4096 exec/s: 0 rss: 46Mb L: 32/83 MS: 1 EraseBytes-
+#3096	REDUCE cov: 229 ft: 265 corp: 17/219b lim: 4096 exec/s: 0 rss: 46Mb L: 4/83 MS: 3 ChangeBit-CopyPart-EraseBytes-
+#3254	REDUCE cov: 230 ft: 266 corp: 18/229b lim: 4096 exec/s: 0 rss: 47Mb L: 10/83 MS: 3 CMP-InsertByte-ChangeBinInt- DE: "\001\000\000\000"-
+#3431	NEW    cov: 230 ft: 267 corp: 19/233b lim: 4096 exec/s: 0 rss: 47Mb L: 4/83 MS: 2 ChangeBit-CopyPart-
+#3447	REDUCE cov: 230 ft: 267 corp: 19/232b lim: 4096 exec/s: 0 rss: 47Mb L: 3/83 MS: 1 EraseBytes-
+#3523	REDUCE cov: 230 ft: 267 corp: 19/231b lim: 4096 exec/s: 0 rss: 48Mb L: 3/83 MS: 1 EraseBytes-
+#3820	REDUCE cov: 230 ft: 267 corp: 19/215b lim: 4096 exec/s: 0 rss: 48Mb L: 16/83 MS: 2 CrossOver-EraseBytes-
+#3950	REDUCE cov: 230 ft: 267 corp: 19/213b lim: 4096 exec/s: 0 rss: 48Mb L: 4/83 MS: 5 CrossOver-ChangeBit-EraseBytes-ChangeBit-ChangeByte-
+#4182	REDUCE cov: 230 ft: 267 corp: 19/209b lim: 4096 exec/s: 0 rss: 49Mb L: 6/83 MS: 2 ChangeBinInt-EraseBytes-
+#4214	REDUCE cov: 230 ft: 267 corp: 19/208b lim: 4096 exec/s: 0 rss: 49Mb L: 15/83 MS: 2 InsertByte-EraseBytes-
+#4467	REDUCE cov: 230 ft: 267 corp: 19/207b lim: 4096 exec/s: 0 rss: 50Mb L: 16/83 MS: 3 InsertByte-ShuffleBytes-EraseBytes-
+#4494	REDUCE cov: 230 ft: 267 corp: 19/205b lim: 4096 exec/s: 0 rss: 50Mb L: 4/83 MS: 2 EraseBytes-CMP- DE: "\012\000\000\000"-
+#4522	REDUCE cov: 230 ft: 267 corp: 19/203b lim: 4096 exec/s: 0 rss: 50Mb L: 2/83 MS: 3 EraseBytes-EraseBytes-InsertByte-
+#4535	REDUCE cov: 230 ft: 267 corp: 19/202b lim: 4096 exec/s: 0 rss: 50Mb L: 4/83 MS: 3 CopyPart-EraseBytes-EraseBytes-
+#4561	REDUCE cov: 230 ft: 267 corp: 19/196b lim: 4096 exec/s: 0 rss: 50Mb L: 9/83 MS: 1 EraseBytes-
+#4592	REDUCE cov: 230 ft: 267 corp: 19/194b lim: 4096 exec/s: 0 rss: 50Mb L: 2/83 MS: 1 EraseBytes-
+#4643	REDUCE cov: 230 ft: 267 corp: 19/192b lim: 4096 exec/s: 0 rss: 50Mb L: 2/83 MS: 1 EraseBytes-
+#4749	REDUCE cov: 230 ft: 267 corp: 19/190b lim: 4096 exec/s: 0 rss: 51Mb L: 2/83 MS: 1 EraseBytes-
+#4819	REDUCE cov: 230 ft: 267 corp: 19/187b lim: 4096 exec/s: 0 rss: 51Mb L: 6/83 MS: 5 ChangeBit-ChangeBinInt-ShuffleBytes-ChangeByte-EraseBytes-
+#4895	REDUCE cov: 231 ft: 268 corp: 20/190b lim: 4096 exec/s: 0 rss: 51Mb L: 3/83 MS: 1 InsertByte-
+#5066	REDUCE cov: 231 ft: 268 corp: 20/189b lim: 4096 exec/s: 0 rss: 51Mb L: 1/83 MS: 1 EraseBytes-
+#5103	REDUCE cov: 232 ft: 269 corp: 21/193b lim: 4096 exec/s: 0 rss: 51Mb L: 4/83 MS: 2 CopyPart-CopyPart-
+#5233	REDUCE cov: 233 ft: 270 corp: 22/197b lim: 4096 exec/s: 0 rss: 52Mb L: 4/83 MS: 5 ChangeByte-ShuffleBytes-ChangeBit-CrossOver-ShuffleBytes-
+#5587	NEW    cov: 234 ft: 271 corp: 23/201b lim: 4096 exec/s: 0 rss: 52Mb L: 4/83 MS: 4 InsertByte-InsertByte-ChangeBit-ChangeByte-
+#5813	REDUCE cov: 234 ft: 271 corp: 23/200b lim: 4096 exec/s: 0 rss: 53Mb L: 82/82 MS: 1 EraseBytes-
+#6424	REDUCE cov: 234 ft: 271 corp: 23/198b lim: 4096 exec/s: 0 rss: 54Mb L: 4/82 MS: 1 EraseBytes-
+#6765	REDUCE cov: 234 ft: 271 corp: 23/196b lim: 4096 exec/s: 0 rss: 54Mb L: 2/82 MS: 1 EraseBytes-
+#7378	NEW    cov: 234 ft: 272 corp: 24/202b lim: 4096 exec/s: 0 rss: 55Mb L: 6/82 MS: 3 InsertByte-InsertByte-CopyPart-
+#8986	REDUCE cov: 235 ft: 273 corp: 25/254b lim: 4096 exec/s: 0 rss: 55Mb L: 52/82 MS: 3 ChangeByte-InsertByte-InsertRepeatedBytes-
+#10168	NEW    cov: 235 ft: 274 corp: 26/265b lim: 4096 exec/s: 0 rss: 55Mb L: 11/82 MS: 2 CrossOver-CrossOver-
+#10912	REDUCE cov: 235 ft: 274 corp: 26/262b lim: 4096 exec/s: 0 rss: 55Mb L: 49/82 MS: 4 ChangeBit-CMP-ChangeByte-EraseBytes- DE: "\001\000\000\000\000\000\000\021"-
+#11114	REDUCE cov: 235 ft: 274 corp: 26/252b lim: 4096 exec/s: 0 rss: 55Mb L: 39/82 MS: 2 InsertByte-EraseBytes-
+#11185	REDUCE cov: 235 ft: 274 corp: 26/243b lim: 4096 exec/s: 0 rss: 55Mb L: 30/82 MS: 1 EraseBytes-
+#12220	REDUCE cov: 235 ft: 274 corp: 26/237b lim: 4096 exec/s: 0 rss: 55Mb L: 24/82 MS: 5 InsertByte-ChangeBinInt-PersAutoDict-ManualDict-EraseBytes- DE: "()"-"\\p{IsGurmukhi}"-
+#12369	REDUCE cov: 236 ft: 275 corp: 27/254b lim: 4096 exec/s: 0 rss: 55Mb L: 17/82 MS: 4 CMP-PersAutoDict-ChangeBinInt-ChangeBinInt- DE: "s\000"-"\\p{IsMongolian}"-
+#12788	REDUCE cov: 236 ft: 275 corp: 27/249b lim: 4096 exec/s: 0 rss: 55Mb L: 19/82 MS: 4 CrossOver-ShuffleBytes-ChangeBit-EraseBytes-
+#13058	REDUCE cov: 236 ft: 275 corp: 27/248b lim: 4096 exec/s: 0 rss: 55Mb L: 16/82 MS: 5 CrossOver-ChangeASCIIInt-CopyPart-CMP-EraseBytes- DE: "\000\000\000\000"-
+#13134	REDUCE cov: 236 ft: 275 corp: 27/246b lim: 4096 exec/s: 0 rss: 55Mb L: 17/82 MS: 1 EraseBytes-
+#13198	REDUCE cov: 237 ft: 276 corp: 28/249b lim: 4096 exec/s: 0 rss: 55Mb L: 3/82 MS: 4 ChangeBinInt-InsertByte-ChangeBinInt-ChangeBit-
+#13675	REDUCE cov: 237 ft: 276 corp: 28/245b lim: 4096 exec/s: 0 rss: 56Mb L: 13/82 MS: 2 ManualDict-EraseBytes- DE: ")("-
+#13722	REDUCE cov: 237 ft: 276 corp: 28/241b lim: 4096 exec/s: 0 rss: 56Mb L: 9/82 MS: 2 CMP-EraseBytes- DE: "\377\377\377\377\377\377\377\377"-
+#14299	REDUCE cov: 238 ft: 277 corp: 29/257b lim: 4096 exec/s: 0 rss: 56Mb L: 16/82 MS: 2 ChangeBinInt-ChangeBit-
+#14550	NEW    cov: 238 ft: 278 corp: 30/265b lim: 4096 exec/s: 0 rss: 56Mb L: 8/82 MS: 1 CopyPart-
+#15276	REDUCE cov: 238 ft: 278 corp: 30/263b lim: 4096 exec/s: 0 rss: 56Mb L: 7/82 MS: 1 EraseBytes-
+#15682	REDUCE cov: 238 ft: 278 corp: 30/262b lim: 4096 exec/s: 0 rss: 56Mb L: 15/82 MS: 1 EraseBytes-
+#16065	REDUCE cov: 238 ft: 278 corp: 30/259b lim: 4096 exec/s: 0 rss: 56Mb L: 4/82 MS: 3 ShuffleBytes-ChangeBinInt-EraseBytes-
+#16334	REDUCE cov: 238 ft: 278 corp: 30/258b lim: 4096 exec/s: 0 rss: 56Mb L: 14/82 MS: 4 ChangeBit-EraseBytes-ChangeBit-CrossOver-
+#16501	REDUCE cov: 238 ft: 278 corp: 30/257b lim: 4096 exec/s: 0 rss: 56Mb L: 10/82 MS: 2 CrossOver-EraseBytes-
+#16513	REDUCE cov: 238 ft: 278 corp: 30/255b lim: 4096 exec/s: 0 rss: 56Mb L: 2/82 MS: 2 ChangeBit-EraseBytes-
+#17679	REDUCE cov: 238 ft: 278 corp: 30/249b lim: 4096 exec/s: 0 rss: 56Mb L: 10/82 MS: 1 EraseBytes-
+#18185	REDUCE cov: 238 ft: 278 corp: 30/248b lim: 4096 exec/s: 0 rss: 56Mb L: 3/82 MS: 1 EraseBytes-
+#18219	REDUCE cov: 238 ft: 278 corp: 30/242b lim: 4096 exec/s: 0 rss: 56Mb L: 8/82 MS: 4 ShuffleBytes-EraseBytes-ChangeByte-ChangeBinInt-
+#18625	REDUCE cov: 238 ft: 278 corp: 30/239b lim: 4096 exec/s: 0 rss: 56Mb L: 7/82 MS: 1 EraseBytes-
+#18884	REDUCE cov: 238 ft: 278 corp: 30/238b lim: 4096 exec/s: 0 rss: 56Mb L: 1/82 MS: 4 ChangeBit-ChangeBit-CopyPart-EraseBytes-
+#19850	NEW    cov: 238 ft: 279 corp: 31/250b lim: 4096 exec/s: 0 rss: 56Mb L: 12/82 MS: 1 CopyPart-
+#20428	REDUCE cov: 239 ft: 280 corp: 32/254b lim: 4096 exec/s: 0 rss: 56Mb L: 4/82 MS: 3 InsertByte-InsertByte-ChangeBinInt-
+#21465	NEW    cov: 240 ft: 281 corp: 33/257b lim: 4096 exec/s: 0 rss: 56Mb L: 3/82 MS: 2 ChangeBit-ChangeBit-
+#21881	REDUCE cov: 240 ft: 281 corp: 33/254b lim: 4096 exec/s: 0 rss: 56Mb L: 5/82 MS: 1 EraseBytes-
+#22971	REDUCE cov: 240 ft: 281 corp: 33/253b lim: 4096 exec/s: 0 rss: 56Mb L: 81/81 MS: 5 ManualDict-InsertByte-EraseBytes-CrossOver-ManualDict- DE: "\\p{IsTagalog}"-"\\p{IsKatakanaPhoneticExtensions}"-
+#23367	NEW    cov: 240 ft: 282 corp: 34/269b lim: 4096 exec/s: 0 rss: 56Mb L: 16/81 MS: 1 CopyPart-
+#23913	NEW    cov: 240 ft: 283 corp: 35/275b lim: 4096 exec/s: 0 rss: 56Mb L: 6/81 MS: 1 CopyPart-
+#29062	REDUCE cov: 240 ft: 283 corp: 35/274b lim: 4096 exec/s: 0 rss: 56Mb L: 9/81 MS: 4 CrossOver-CrossOver-ChangeByte-EraseBytes-
+#29838	NEW    cov: 240 ft: 284 corp: 36/286b lim: 4096 exec/s: 0 rss: 56Mb L: 12/81 MS: 1 CrossOver-
+#30494	NEW    cov: 240 ft: 285 corp: 37/298b lim: 4096 exec/s: 0 rss: 56Mb L: 12/81 MS: 1 ChangeBinInt-
+#33205	REDUCE cov: 240 ft: 285 corp: 37/297b lim: 4096 exec/s: 0 rss: 56Mb L: 11/81 MS: 1 EraseBytes-
+#37396	REDUCE cov: 240 ft: 285 corp: 37/295b lim: 4096 exec/s: 0 rss: 56Mb L: 10/81 MS: 1 EraseBytes-
+#40022	REDUCE cov: 240 ft: 285 corp: 37/294b lim: 4096 exec/s: 0 rss: 56Mb L: 3/81 MS: 1 EraseBytes-
+#40323	NEW    cov: 240 ft: 286 corp: 38/326b lim: 4096 exec/s: 0 rss: 56Mb L: 32/81 MS: 1 CopyPart-
+#40465	REDUCE cov: 240 ft: 286 corp: 38/325b lim: 4096 exec/s: 0 rss: 56Mb L: 9/81 MS: 2 CopyPart-EraseBytes-
+#41121	REDUCE cov: 240 ft: 287 corp: 39/335b lim: 4096 exec/s: 0 rss: 56Mb L: 10/81 MS: 1 CopyPart-
+#49422	REDUCE cov: 240 ft: 288 corp: 40/351b lim: 4096 exec/s: 0 rss: 56Mb L: 16/81 MS: 1 CopyPart-
+#50848	REDUCE cov: 240 ft: 288 corp: 40/349b lim: 4096 exec/s: 0 rss: 56Mb L: 9/81 MS: 1 EraseBytes-
+#51979	REDUCE cov: 240 ft: 288 corp: 40/348b lim: 4096 exec/s: 51979 rss: 56Mb L: 4/81 MS: 1 EraseBytes-
+#53907	REDUCE cov: 240 ft: 288 corp: 40/347b lim: 4096 exec/s: 53907 rss: 56Mb L: 6/81 MS: 3 CopyPart-ChangeByte-EraseBytes-
+#60443	REDUCE cov: 240 ft: 288 corp: 40/346b lim: 4096 exec/s: 60443 rss: 56Mb L: 8/81 MS: 1 EraseBytes-
+#71469	REDUCE cov: 240 ft: 288 corp: 40/345b lim: 4096 exec/s: 71469 rss: 56Mb L: 5/81 MS: 1 EraseBytes-
+#76020	REDUCE cov: 240 ft: 288 corp: 40/344b lim: 4096 exec/s: 76020 rss: 56Mb L: 7/81 MS: 1 EraseBytes-
+#76174	REDUCE cov: 240 ft: 288 corp: 40/343b lim: 4096 exec/s: 76174 rss: 56Mb L: 6/81 MS: 4 EraseBytes-EraseBytes-ShuffleBytes-CopyPart-
+#77380	REDUCE cov: 240 ft: 288 corp: 40/342b lim: 4096 exec/s: 77380 rss: 56Mb L: 15/81 MS: 1 EraseBytes-
+#79081	REDUCE cov: 240 ft: 288 corp: 40/341b lim: 4096 exec/s: 79081 rss: 56Mb L: 4/81 MS: 1 EraseBytes-
+#79492	REDUCE cov: 241 ft: 289 corp: 41/343b lim: 4096 exec/s: 79492 rss: 56Mb L: 2/81 MS: 1 InsertByte-
+#93447	NEW    cov: 241 ft: 290 corp: 42/363b lim: 4096 exec/s: 46723 rss: 56Mb L: 20/81 MS: 2 ChangeBit-CopyPart-
+#96908	NEW    cov: 241 ft: 291 corp: 43/379b lim: 4096 exec/s: 48454 rss: 56Mb L: 16/81 MS: 1 CopyPart-
+#113939	REDUCE cov: 241 ft: 291 corp: 43/378b lim: 4096 exec/s: 56969 rss: 56Mb L: 31/81 MS: 1 EraseBytes-
+#120942	REDUCE cov: 241 ft: 292 corp: 44/406b lim: 4096 exec/s: 60471 rss: 56Mb L: 28/81 MS: 3 ChangeBit-CopyPart-CopyPart-
+#122605	REDUCE cov: 241 ft: 292 corp: 44/405b lim: 4096 exec/s: 61302 rss: 56Mb L: 9/81 MS: 3 InsertByte-ChangeBit-EraseBytes-
+#131072	pulse  cov: 241 ft: 292 corp: 44/405b lim: 4096 exec/s: 43690 rss: 56Mb
+#132398	NEW    cov: 241 ft: 293 corp: 45/485b lim: 4096 exec/s: 44132 rss: 56Mb L: 80/81 MS: 3 PersAutoDict-ChangeByte-CopyPart- DE: "\\p{IsKangxiRadicals}"-
+#138494	REDUCE cov: 241 ft: 293 corp: 45/484b lim: 4096 exec/s: 46164 rss: 56Mb L: 14/81 MS: 1 EraseBytes-
+#245675	REDUCE cov: 241 ft: 293 corp: 45/483b lim: 4096 exec/s: 30709 rss: 56Mb L: 13/81 MS: 1 EraseBytes-
+#248187	REDUCE cov: 241 ft: 293 corp: 45/473b lim: 4096 exec/s: 31023 rss: 56Mb L: 70/81 MS: 2 CrossOver-EraseBytes-
+#260779	REDUCE cov: 241 ft: 293 corp: 45/472b lim: 4096 exec/s: 32597 rss: 56Mb L: 12/81 MS: 2 CopyPart-EraseBytes-
+#262144	pulse  cov: 241 ft: 293 corp: 45/472b lim: 4096 exec/s: 32768 rss: 56Mb
+#275895	REDUCE cov: 241 ft: 293 corp: 45/465b lim: 4096 exec/s: 34486 rss: 56Mb L: 63/81 MS: 1 EraseBytes-
+#282367	REDUCE cov: 241 ft: 294 corp: 46/545b lim: 4096 exec/s: 31374 rss: 56Mb L: 80/81 MS: 2 CopyPart-CopyPart-
+#316718	REDUCE cov: 241 ft: 294 corp: 46/544b lim: 4096 exec/s: 35190 rss: 56Mb L: 15/81 MS: 1 EraseBytes-
+#469369	NEW    cov: 242 ft: 295 corp: 47/590b lim: 4096 exec/s: 33526 rss: 56Mb L: 46/81 MS: 1 InsertRepeatedBytes-
+#470050	REDUCE cov: 242 ft: 295 corp: 47/583b lim: 4096 exec/s: 33575 rss: 56Mb L: 73/81 MS: 1 EraseBytes-
+#486499	REDUCE cov: 242 ft: 295 corp: 47/582b lim: 4096 exec/s: 34749 rss: 56Mb L: 45/81 MS: 4 ManualDict-ChangeByte-CrossOver-EraseBytes- DE: "\\p{IsHiragana}"-
+#492235	REDUCE cov: 242 ft: 295 corp: 47/573b lim: 4096 exec/s: 35159 rss: 56Mb L: 36/81 MS: 1 EraseBytes-
+#503432	REDUCE cov: 242 ft: 295 corp: 47/571b lim: 4096 exec/s: 33562 rss: 56Mb L: 34/81 MS: 2 InsertByte-EraseBytes-
+#517483	REDUCE cov: 242 ft: 295 corp: 47/556b lim: 4096 exec/s: 34498 rss: 56Mb L: 19/81 MS: 1 EraseBytes-
+#524288	pulse  cov: 242 ft: 295 corp: 47/556b lim: 4096 exec/s: 34952 rss: 56Mb
+#526266	REDUCE cov: 242 ft: 295 corp: 47/548b lim: 4096 exec/s: 35084 rss: 56Mb L: 11/81 MS: 3 CopyPart-ShuffleBytes-EraseBytes-
+#529048	REDUCE cov: 242 ft: 295 corp: 47/546b lim: 4096 exec/s: 33065 rss: 56Mb L: 9/81 MS: 2 InsertRepeatedBytes-EraseBytes-
+#571115	REDUCE cov: 242 ft: 295 corp: 47/543b lim: 4096 exec/s: 33595 rss: 56Mb L: 6/81 MS: 2 ChangeBinInt-EraseBytes-
+#574347	REDUCE cov: 242 ft: 295 corp: 47/540b lim: 4096 exec/s: 33785 rss: 56Mb L: 3/81 MS: 2 ChangeASCIIInt-EraseBytes-
+#576068	REDUCE cov: 242 ft: 295 corp: 47/537b lim: 4096 exec/s: 33886 rss: 56Mb L: 25/81 MS: 1 EraseBytes-
+#669834	REDUCE cov: 242 ft: 295 corp: 47/532b lim: 4096 exec/s: 31896 rss: 56Mb L: 68/81 MS: 1 EraseBytes-
+#698135	REDUCE cov: 242 ft: 295 corp: 47/531b lim: 4096 exec/s: 33244 rss: 56Mb L: 19/81 MS: 1 EraseBytes-
+#757887	REDUCE cov: 242 ft: 295 corp: 47/526b lim: 4096 exec/s: 32951 rss: 56Mb L: 58/81 MS: 2 ChangeBit-EraseBytes-
+#790474	REDUCE cov: 242 ft: 295 corp: 47/525b lim: 4096 exec/s: 32936 rss: 56Mb L: 67/81 MS: 2 InsertByte-EraseBytes-
+#907310	REDUCE cov: 242 ft: 295 corp: 47/524b lim: 4096 exec/s: 32403 rss: 56Mb L: 8/81 MS: 1 EraseBytes-
+#1048576	pulse  cov: 242 ft: 295 corp: 47/524b lim: 4096 exec/s: 32768 rss: 56Mb
+#1083786	REDUCE cov: 242 ft: 295 corp: 47/522b lim: 4096 exec/s: 32842 rss: 56Mb L: 56/81 MS: 1 EraseBytes-
+#1654228	REDUCE cov: 242 ft: 295 corp: 47/516b lim: 4096 exec/s: 33084 rss: 56Mb L: 61/81 MS: 2 EraseBytes-CrossOver-
+#1944059	REDUCE cov: 242 ft: 295 corp: 47/515b lim: 4096 exec/s: 32950 rss: 56Mb L: 60/81 MS: 1 EraseBytes-
+#1955885	REDUCE cov: 242 ft: 295 corp: 47/513b lim: 4096 exec/s: 33150 rss: 56Mb L: 54/81 MS: 1 EraseBytes-
+#2002065	DONE   cov: 242 ft: 295 corp: 47/513b lim: 4096 exec/s: 32820 rss: 56Mb
+###### Recommended dictionary. ######
+"\001\000\000\000" # Uses: 10481
+"\012\000\000\000" # Uses: 10266
+"\001\000\000\000\000\000\000\021" # Uses: 9020
+"s\000" # Uses: 11537
+"\000\000\000\000" # Uses: 10190
+"\377\377\377\377\377\377\377\377" # Uses: 8851
+###### End of recommended dictionary. ######
+Done 2002065 runs in 61 second(s)
+stat::number_of_executed_units: 2002065
+stat::average_exec_per_sec:     32820
+stat::new_units_added:          179
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              56

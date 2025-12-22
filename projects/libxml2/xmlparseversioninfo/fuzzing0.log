@@ -1,0 +1,60 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlparseversioninfo/run1_cjlebrssgatrsqie/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_cjlebrssgatrsqie:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47234 inline 8-bit counters): 47234 [0x561c61efa588, 0x561c61f05e0a), 
+INFO: Loaded 1 PC tables (47234 PCs): 47234 [0x561c61f05e10,0x561c61fbe630), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 34Mb
+#122	INITED cov: 111 ft: 112 corp: 1/12b exec/s: 0 rss: 37Mb
+#123	REDUCE cov: 111 ft: 112 corp: 1/11b lim: 4096 exec/s: 0 rss: 37Mb L: 11/11 MS: 1 EraseBytes-
+#152	REDUCE cov: 111 ft: 112 corp: 1/8b lim: 4096 exec/s: 0 rss: 37Mb L: 8/8 MS: 4 ShuffleBytes-ChangeBinInt-CMP-EraseBytes- DE: "\377\377"-
+#156	REDUCE cov: 111 ft: 112 corp: 1/4b lim: 4096 exec/s: 0 rss: 37Mb L: 4/4 MS: 4 ShuffleBytes-ChangeASCIIInt-ChangeBinInt-EraseBytes-
+#200	REDUCE cov: 111 ft: 112 corp: 1/2b lim: 4096 exec/s: 0 rss: 38Mb L: 2/2 MS: 4 CMP-ChangeBinInt-ChangeBit-EraseBytes- DE: "\001\000\000\000"-
+#201	REDUCE cov: 111 ft: 112 corp: 1/1b lim: 4096 exec/s: 0 rss: 38Mb L: 1/1 MS: 1 EraseBytes-
+#1675	REDUCE cov: 112 ft: 113 corp: 2/2b lim: 4096 exec/s: 0 rss: 41Mb L: 1/1 MS: 4 CopyPart-InsertByte-EraseBytes-ChangeByte-
+#36886	NEW    cov: 113 ft: 114 corp: 3/4b lim: 4096 exec/s: 0 rss: 54Mb L: 2/2 MS: 1 InsertByte-
+#58369	NEW    cov: 114 ft: 115 corp: 4/8b lim: 4096 exec/s: 0 rss: 54Mb L: 4/4 MS: 3 CopyPart-CopyPart-ChangeBit-
+#58955	REDUCE cov: 114 ft: 115 corp: 4/7b lim: 4096 exec/s: 0 rss: 55Mb L: 3/3 MS: 1 EraseBytes-
+#75664	REDUCE cov: 115 ft: 116 corp: 5/25b lim: 4096 exec/s: 0 rss: 55Mb L: 18/18 MS: 4 InsertByte-ManualDict-CrossOver-ShuffleBytes- DE: "\\p{IsHanunoo}"-
+#89665	REDUCE cov: 115 ft: 116 corp: 5/20b lim: 4096 exec/s: 0 rss: 55Mb L: 13/13 MS: 1 EraseBytes-
+#90407	REDUCE cov: 115 ft: 116 corp: 5/17b lim: 4096 exec/s: 0 rss: 55Mb L: 10/10 MS: 2 ShuffleBytes-EraseBytes-
+#95929	REDUCE cov: 116 ft: 117 corp: 6/35b lim: 4096 exec/s: 0 rss: 55Mb L: 18/18 MS: 2 CopyPart-ChangeBit-
+#97075	REDUCE cov: 116 ft: 117 corp: 6/31b lim: 4096 exec/s: 0 rss: 55Mb L: 14/14 MS: 1 EraseBytes-
+#100071	REDUCE cov: 116 ft: 117 corp: 6/27b lim: 4096 exec/s: 0 rss: 55Mb L: 6/14 MS: 1 EraseBytes-
+#100368	REDUCE cov: 116 ft: 117 corp: 6/26b lim: 4096 exec/s: 0 rss: 55Mb L: 13/13 MS: 2 ChangeByte-EraseBytes-
+#104395	REDUCE cov: 116 ft: 117 corp: 6/25b lim: 4096 exec/s: 0 rss: 55Mb L: 12/12 MS: 2 CrossOver-EraseBytes-
+#105021	REDUCE cov: 116 ft: 117 corp: 6/24b lim: 4096 exec/s: 0 rss: 55Mb L: 5/12 MS: 1 EraseBytes-
+#108982	REDUCE cov: 116 ft: 117 corp: 6/18b lim: 4096 exec/s: 0 rss: 55Mb L: 6/6 MS: 1 EraseBytes-
+#114423	REDUCE cov: 116 ft: 117 corp: 6/17b lim: 4096 exec/s: 0 rss: 55Mb L: 4/6 MS: 1 EraseBytes-
+#117369	REDUCE cov: 116 ft: 117 corp: 6/16b lim: 4096 exec/s: 0 rss: 55Mb L: 5/5 MS: 1 EraseBytes-
+#524288	pulse  cov: 116 ft: 117 corp: 6/16b lim: 4096 exec/s: 174762 rss: 55Mb
+#1048576	pulse  cov: 116 ft: 117 corp: 6/16b lim: 4096 exec/s: 174762 rss: 55Mb
+#2097152	pulse  cov: 116 ft: 117 corp: 6/16b lim: 4096 exec/s: 174762 rss: 55Mb
+#4194304	pulse  cov: 116 ft: 117 corp: 6/16b lim: 4096 exec/s: 174762 rss: 55Mb
+#5738854	REDUCE cov: 117 ft: 118 corp: 7/114b lim: 4096 exec/s: 173904 rss: 55Mb L: 98/98 MS: 1 InsertRepeatedBytes-
+#5739113	REDUCE cov: 117 ft: 118 corp: 7/81b lim: 4096 exec/s: 173912 rss: 55Mb L: 65/65 MS: 4 CrossOver-ShuffleBytes-ManualDict-EraseBytes- DE: "+"-
+#5739203	REDUCE cov: 117 ft: 118 corp: 7/55b lim: 4096 exec/s: 173915 rss: 55Mb L: 39/39 MS: 5 ShuffleBytes-ManualDict-InsertByte-PersAutoDict-EraseBytes- DE: "\\p{IsSupplementaryPrivateUseAreaB}"-"+"-
+#5742478	REDUCE cov: 117 ft: 118 corp: 7/41b lim: 4096 exec/s: 174014 rss: 55Mb L: 25/25 MS: 5 ChangeBit-ChangeBit-InsertByte-InsertByte-EraseBytes-
+#5747940	REDUCE cov: 117 ft: 118 corp: 7/29b lim: 4096 exec/s: 174180 rss: 55Mb L: 13/13 MS: 2 CrossOver-EraseBytes-
+#5748161	REDUCE cov: 117 ft: 118 corp: 7/24b lim: 4096 exec/s: 174186 rss: 55Mb L: 8/8 MS: 1 EraseBytes-
+#5751487	REDUCE cov: 117 ft: 118 corp: 7/23b lim: 4096 exec/s: 174287 rss: 55Mb L: 7/7 MS: 1 EraseBytes-
+#6025883	REDUCE cov: 117 ft: 118 corp: 7/22b lim: 4096 exec/s: 172168 rss: 55Mb L: 6/6 MS: 1 EraseBytes-
+#8388608	pulse  cov: 117 ft: 118 corp: 7/22b lim: 4096 exec/s: 167772 rss: 55Mb
+#10346803	DONE   cov: 117 ft: 118 corp: 7/22b lim: 4096 exec/s: 169619 rss: 55Mb
+###### Recommended dictionary. ######
+"\377\377" # Uses: 245192
+"\001\000\000\000" # Uses: 198089
+###### End of recommended dictionary. ######
+Done 10346803 runs in 61 second(s)
+stat::number_of_executed_units: 10346803
+stat::average_exec_per_sec:     169619
+stat::new_units_added:          29
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              55

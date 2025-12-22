@@ -1,0 +1,40 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlxpathdivvalues/run1_xcvixmioxltnmmaf/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_xcvixmioxltnmmaf:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47242 inline 8-bit counters): 47242 [0x55f9bce25578, 0x55f9bce30e02), 
+INFO: Loaded 1 PC tables (47242 PCs): 47242 [0x55f9bce30e08,0x55f9bcee96a8), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 34Mb
+#122	INITED cov: 18 ft: 19 corp: 2/28b exec/s: 0 rss: 36Mb
+#123	REDUCE cov: 18 ft: 19 corp: 2/27b lim: 4096 exec/s: 0 rss: 36Mb L: 11/16 MS: 1 EraseBytes-
+#210	REDUCE cov: 19 ft: 20 corp: 3/35b lim: 4096 exec/s: 0 rss: 36Mb L: 8/16 MS: 2 ChangeBinInt-EraseBytes-
+#254	REDUCE cov: 19 ft: 20 corp: 3/33b lim: 4096 exec/s: 0 rss: 37Mb L: 9/16 MS: 4 ChangeASCIIInt-ChangeBit-ChangeBit-EraseBytes-
+#313	NEW    cov: 20 ft: 21 corp: 4/40b lim: 4096 exec/s: 0 rss: 37Mb L: 7/16 MS: 4 CopyPart-ChangeBit-ChangeByte-EraseBytes-
+#358	REDUCE cov: 20 ft: 21 corp: 4/36b lim: 4096 exec/s: 0 rss: 37Mb L: 4/16 MS: 5 ChangeASCIIInt-CrossOver-ShuffleBytes-ChangeBit-EraseBytes-
+#365	REDUCE cov: 20 ft: 21 corp: 4/35b lim: 4096 exec/s: 0 rss: 37Mb L: 6/16 MS: 2 CopyPart-EraseBytes-
+#415	REDUCE cov: 20 ft: 21 corp: 4/34b lim: 4096 exec/s: 0 rss: 37Mb L: 5/16 MS: 5 ShuffleBytes-InsertByte-ChangeByte-ShuffleBytes-EraseBytes-
+#469	REDUCE cov: 20 ft: 21 corp: 4/33b lim: 4096 exec/s: 0 rss: 37Mb L: 4/16 MS: 4 InsertByte-ShuffleBytes-ChangeBit-EraseBytes-
+#499	REDUCE cov: 20 ft: 21 corp: 4/32b lim: 4096 exec/s: 0 rss: 37Mb L: 3/16 MS: 5 ChangeBinInt-ShuffleBytes-ChangeBit-ChangeBit-EraseBytes-
+#570	REDUCE cov: 20 ft: 21 corp: 4/31b lim: 4096 exec/s: 0 rss: 37Mb L: 3/16 MS: 1 EraseBytes-
+#571	REDUCE cov: 20 ft: 21 corp: 4/30b lim: 4096 exec/s: 0 rss: 37Mb L: 2/16 MS: 1 EraseBytes-
+#638	REDUCE cov: 20 ft: 21 corp: 4/29b lim: 4096 exec/s: 0 rss: 37Mb L: 2/16 MS: 2 ChangeBit-EraseBytes-
+#639	REDUCE cov: 20 ft: 21 corp: 4/28b lim: 4096 exec/s: 0 rss: 37Mb L: 1/16 MS: 1 EraseBytes-
+#755	REDUCE cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 0 rss: 37Mb L: 1/16 MS: 1 EraseBytes-
+#1048576	pulse  cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 349525 rss: 56Mb
+#2097152	pulse  cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 299593 rss: 56Mb
+#4194304	pulse  cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 279620 rss: 56Mb
+#8388608	pulse  cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 270600 rss: 56Mb
+#16532480	DONE   cov: 20 ft: 21 corp: 4/27b lim: 4096 exec/s: 271024 rss: 56Mb
+Done 16532480 runs in 61 second(s)
+stat::number_of_executed_units: 16532480
+stat::average_exec_per_sec:     271024
+stat::new_units_added:          14
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              56

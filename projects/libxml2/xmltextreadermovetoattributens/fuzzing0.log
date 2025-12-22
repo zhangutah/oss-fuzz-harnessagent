@@ -1,0 +1,37 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmltextreadermovetoattributens/run1_jrpwfrrhxceszqtu/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_jrpwfrrhxceszqtu:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47243 inline 8-bit counters): 47243 [0x5653833d6580, 0x5653833e1e0b), 
+INFO: Loaded 1 PC tables (47243 PCs): 47243 [0x5653833e1e10,0x56538349a6c0), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 35Mb
+#122	INITED cov: 176 ft: 177 corp: 1/12b exec/s: 0 rss: 39Mb
+#123	REDUCE cov: 176 ft: 177 corp: 1/11b lim: 4096 exec/s: 0 rss: 39Mb L: 11/11 MS: 1 EraseBytes-
+#152	REDUCE cov: 176 ft: 177 corp: 1/8b lim: 4096 exec/s: 0 rss: 40Mb L: 8/8 MS: 4 ShuffleBytes-ChangeBinInt-CMP-EraseBytes- DE: "\377\377"-
+#156	REDUCE cov: 176 ft: 177 corp: 1/4b lim: 4096 exec/s: 0 rss: 40Mb L: 4/4 MS: 4 ShuffleBytes-ChangeASCIIInt-ChangeBinInt-EraseBytes-
+#200	REDUCE cov: 184 ft: 188 corp: 2/6b lim: 4096 exec/s: 0 rss: 40Mb L: 2/4 MS: 4 CMP-ChangeBinInt-ChangeBit-EraseBytes- DE: "D\000\000\000"-
+#210	NEW    cov: 185 ft: 189 corp: 3/7b lim: 4096 exec/s: 0 rss: 40Mb L: 1/4 MS: 5 CopyPart-ChangeByte-ShuffleBytes-ChangeBit-EraseBytes-
+#281	REDUCE cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 0 rss: 41Mb L: 1/4 MS: 1 EraseBytes-
+#262144	pulse  cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 131072 rss: 53Mb
+#524288	pulse  cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 131072 rss: 53Mb
+#1048576	pulse  cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 131072 rss: 53Mb
+#2097152	pulse  cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 131072 rss: 53Mb
+#4194304	pulse  cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 119837 rss: 53Mb
+#6705831	DONE   cov: 185 ft: 189 corp: 3/6b lim: 4096 exec/s: 109931 rss: 53Mb
+###### Recommended dictionary. ######
+"\377\377" # Uses: 278553
+"D\000\000\000" # Uses: 251493
+###### End of recommended dictionary. ######
+Done 6705831 runs in 61 second(s)
+stat::number_of_executed_units: 6705831
+stat::average_exec_per_sec:     109931
+stat::new_units_added:          6
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              53

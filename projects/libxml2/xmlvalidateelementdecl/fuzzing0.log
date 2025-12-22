@@ -1,0 +1,54 @@
+INFO:__main__:Running: docker run --privileged --shm-size=2g --platform linux/amd64 --rm -i -e FUZZING_ENGINE=libfuzzer -e SANITIZER=address -e RUN_FUZZER_MODE=interactive -e HELPER=True -v /home/yk/code/LLM-reasoning-agents/outputs/projects/gpt5-mini/libxml2/libxml2/xmlvalidateelementdecl/run1_eysyjycdljvahryi/corpora:/tmp/regexp_corpus -v /home/yk/code/oss-fuzz/build/out/run1_eysyjycdljvahryi:/out -t gcr.io/oss-fuzz-base/base-runner run_fuzzer regexp -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234.
+vm.mmap_rnd_bits = 28
+rm: cannot remove '/tmp/regexp_corpus': Device or resource busy
+Using seed corpus: regexp_seed_corpus.zip
+/out/regexp -- -rss_limit_mb=2560 -timeout=25 -print_final_stats=1 -max_total_time=60 -len_control=0 -timeout=30 -detect_leaks=0 -seed=1234 /tmp/regexp_corpus -dict=regexp.dict < /dev/null
+INFO: libFuzzer ignores flags that start with '--'
+Dictionary: 151 entries
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1234
+INFO: Loaded 1 modules   (47299 inline 8-bit counters): 47299 [0x55af275d1578, 0x55af275dce3b), 
+INFO: Loaded 1 PC tables (47299 PCs): 47299 [0x55af275dce40,0x55af27695a70), 
+INFO:      121 files found in /tmp/regexp_corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 121 min: 12b max: 1359b total: 14188b rss: 34Mb
+#122	INITED cov: 17 ft: 18 corp: 4/122b exec/s: 0 rss: 36Mb
+#123	REDUCE cov: 17 ft: 18 corp: 4/121b lim: 4096 exec/s: 0 rss: 37Mb L: 11/41 MS: 1 EraseBytes-
+#154	REDUCE cov: 17 ft: 18 corp: 4/117b lim: 4096 exec/s: 0 rss: 37Mb L: 7/41 MS: 1 EraseBytes-
+#155	REDUCE cov: 17 ft: 18 corp: 4/115b lim: 4096 exec/s: 0 rss: 37Mb L: 5/41 MS: 1 EraseBytes-
+#160	REDUCE cov: 17 ft: 18 corp: 4/114b lim: 4096 exec/s: 0 rss: 37Mb L: 4/41 MS: 5 ShuffleBytes-ShuffleBytes-ChangeByte-CrossOver-EraseBytes-
+#172	REDUCE cov: 17 ft: 18 corp: 4/112b lim: 4096 exec/s: 0 rss: 37Mb L: 34/41 MS: 2 EraseBytes-CrossOver-
+#224	REDUCE cov: 17 ft: 18 corp: 4/110b lim: 4096 exec/s: 0 rss: 37Mb L: 2/41 MS: 2 ChangeBinInt-EraseBytes-
+#310	REDUCE cov: 20 ft: 21 corp: 5/111b lim: 4096 exec/s: 0 rss: 37Mb L: 1/41 MS: 1 EraseBytes-
+#436	NEW    cov: 38 ft: 39 corp: 6/222b lim: 4096 exec/s: 0 rss: 37Mb L: 111/111 MS: 1 InsertRepeatedBytes-
+#467	NEW    cov: 41 ft: 42 corp: 7/308b lim: 4096 exec/s: 0 rss: 37Mb L: 86/111 MS: 1 EraseBytes-
+#511	REDUCE cov: 47 ft: 48 corp: 8/310b lim: 4096 exec/s: 0 rss: 37Mb L: 2/111 MS: 4 ChangeBit-InsertByte-CrossOver-EraseBytes-
+#531	NEW    cov: 48 ft: 49 corp: 9/401b lim: 4096 exec/s: 0 rss: 37Mb L: 91/111 MS: 5 CopyPart-InsertByte-ShuffleBytes-CMP-CrossOver- DE: "\000\000"-
+#598	REDUCE cov: 49 ft: 50 corp: 10/436b lim: 4096 exec/s: 0 rss: 37Mb L: 35/111 MS: 2 InsertByte-CrossOver-
+#805	REDUCE cov: 49 ft: 50 corp: 10/428b lim: 4096 exec/s: 0 rss: 38Mb L: 78/111 MS: 2 ChangeBit-EraseBytes-
+#813	NEW    cov: 50 ft: 51 corp: 11/488b lim: 4096 exec/s: 0 rss: 38Mb L: 60/111 MS: 3 PersAutoDict-ShuffleBytes-EraseBytes- DE: "\000\000"-
+#907	REDUCE cov: 50 ft: 51 corp: 11/474b lim: 4096 exec/s: 0 rss: 38Mb L: 97/97 MS: 4 PersAutoDict-ChangeBit-EraseBytes-ManualDict- DE: "\000\000"-"\\p{IsMathematicalOperators}"-
+#960	REDUCE cov: 51 ft: 52 corp: 12/475b lim: 4096 exec/s: 0 rss: 38Mb L: 1/97 MS: 3 ShuffleBytes-ChangeBit-EraseBytes-
+#974	REDUCE cov: 51 ft: 52 corp: 12/472b lim: 4096 exec/s: 0 rss: 38Mb L: 75/97 MS: 4 ChangeByte-PersAutoDict-CopyPart-EraseBytes- DE: "\000\000"-
+#1483	REDUCE cov: 51 ft: 52 corp: 12/470b lim: 4096 exec/s: 0 rss: 38Mb L: 73/97 MS: 4 ChangeByte-PersAutoDict-ChangeByte-EraseBytes- DE: "\\p{IsMathematicalOperators}"-
+#1656	REDUCE cov: 51 ft: 52 corp: 12/468b lim: 4096 exec/s: 0 rss: 39Mb L: 58/97 MS: 3 ChangeByte-ChangeBinInt-EraseBytes-
+#2114	REDUCE cov: 51 ft: 52 corp: 12/467b lim: 4096 exec/s: 0 rss: 39Mb L: 34/97 MS: 3 ChangeBit-PersAutoDict-EraseBytes- DE: "\\p{IsMathematicalOperators}"-
+#3411	REDUCE cov: 51 ft: 52 corp: 12/464b lim: 4096 exec/s: 0 rss: 41Mb L: 70/97 MS: 2 ChangeBinInt-EraseBytes-
+#3874	REDUCE cov: 51 ft: 52 corp: 12/463b lim: 4096 exec/s: 0 rss: 41Mb L: 90/97 MS: 3 CrossOver-ChangeByte-EraseBytes-
+#3915	REDUCE cov: 51 ft: 52 corp: 12/460b lim: 4096 exec/s: 0 rss: 41Mb L: 67/97 MS: 1 EraseBytes-
+#4368	REDUCE cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 0 rss: 42Mb L: 66/97 MS: 3 InsertByte-EraseBytes-InsertByte-
+#524288	pulse  cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 262144 rss: 56Mb
+#1048576	pulse  cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 262144 rss: 56Mb
+#2097152	pulse  cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 209715 rss: 56Mb
+#4194304	pulse  cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 209715 rss: 56Mb
+#8388608	pulse  cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 215092 rss: 56Mb
+#12684408	DONE   cov: 51 ft: 52 corp: 12/459b lim: 4096 exec/s: 207941 rss: 56Mb
+###### Recommended dictionary. ######
+"\000\000" # Uses: 541878
+###### End of recommended dictionary. ######
+Done 12684408 runs in 61 second(s)
+stat::number_of_executed_units: 12684408
+stat::average_exec_per_sec:     207941
+stat::new_units_added:          24
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              56
