@@ -32,3 +32,4 @@ RUN curl -LO http://mirrors.kernel.org/ubuntu/pool/main/a/automake-1.16/automake
 RUN git clone --depth 1 https://gitlab.gnome.org/GNOME/libxml2.git
 WORKDIR libxml2
 COPY build.sh $SRC/
+COPY xmlloadcatalogs/harness.txt $SRC/xmlloadcatalogs.c

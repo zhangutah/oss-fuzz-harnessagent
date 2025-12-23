@@ -17,3 +17,9 @@
 ################################################################################
 
 fuzz/oss-fuzz-build.sh
+
+$CC $CXXFLAGS \
+        $SRC/xmlloadcatalogs.c fuzz/fuzz.o \
+        -o $OUT/xmlloadcatalogs\
+        -I./include $LIB_FUZZING_ENGINE \
+        ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
