@@ -967,12 +967,6 @@ $CC $CXXFLAGS \
         ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
 
 $CC $CXXFLAGS \
-        $SRC/all_harnesses/xmlexpandcatalog.c fuzz/fuzz.o \
-        -o $OUT/xmlexpandcatalog\
-        -I./include $LIB_FUZZING_ENGINE \
-        ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
-
-$CC $CXXFLAGS \
         $SRC/all_harnesses/xmlschemavalidatestream.c fuzz/fuzz.o \
         -o $OUT/xmlschemavalidatestream\
         -I./include $LIB_FUZZING_ENGINE \
