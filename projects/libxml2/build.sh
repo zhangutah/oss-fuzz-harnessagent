@@ -494,12 +494,6 @@ $CC $CXXFLAGS \
         ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
 
 $CC $CXXFLAGS \
-        $SRC/all_harnesses/xmllintmain.c fuzz/fuzz.o libxml2/xmllint.o libxml2/shell.o \
-        -o $OUT/xmllintmain\
-        -I./include $LIB_FUZZING_ENGINE \
-        ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
-
-$CC $CXXFLAGS \
         $SRC/all_harnesses/xmlregcopyatom.c fuzz/fuzz.o \
         -o $OUT/xmlregcopyatom\
         -I./include $LIB_FUZZING_ENGINE \
