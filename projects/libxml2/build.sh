@@ -1308,3 +1308,9 @@ $CC $CXXFLAGS \
         -o $OUT/xmlparseurisafe\
         -I./include $LIB_FUZZING_ENGINE \
         ./.libs/libxml2.a -Wl,-Bstatic -lz -Wl,-Bdynamic
+
+# preparing seeds for regression tests
+
+mkdir -p /tmp/corpus && \
+    echo "Q0FUQUxPRw0iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi9PVg0NDQ3dQQ==" | base64 -d > /tmp/corpus/catalog1.xml && \
+    echo "bGFuZyhvKSsqLWRlK0lzQXIAAAAncHtJc0FybWVuaWFufSoqKyoqKg==" | base64 -d > /tmp/corpus/catalog2.xml 
