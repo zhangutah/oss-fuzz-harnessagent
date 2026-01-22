@@ -1,0 +1,393 @@
+R=../..
+include ${R}/fuzzing/config.mk
+
+.PHONY: all clean
+
+FUZZERS:= \
+	broker_fuzz_acl_file \
+	broker_fuzz_password_file \
+	broker_fuzz_proxy_v1 \
+	broker_fuzz_proxy_v2 \
+	broker_fuzz_psk_file \
+	broker_fuzz_queue_msg \
+	broker_fuzz_read_handle \
+	broker_fuzz_test_config \
+    acl_file__check \
+    acl_file__cleanup \
+    acl_file__parse \
+    bridge__add_topic \
+    bridge__remap_topic_in \
+    config__get_dir_files \
+    config__parse_args \
+    connect__on_authorised \
+    control__register_callback \
+    db__messages_delete \
+    db__ready_for_flight \
+    db__ready_for_queue \
+    get_token_to_eol \
+    handle__connack_properties \
+    handle__disconnect \
+    handle__packet \
+    handle__pubackcomp \
+    handle__pubrel \
+    handle__subscribe \
+    handle__unsubscribe \
+    mosquitto_properties_to_json \
+    mosquitto_property_check_all \
+    mosquitto_property_check_command \
+    mosquitto_psk_key_get_default \
+    mosquitto_pw_decode \
+    mosquitto_read_file \
+    mosquitto_write_file \
+    net__init_ssl_ctx \
+    net__try_connect_tcp \
+    packet__read_string \
+    parse_request \
+    parse_response \
+    password_file__parse \
+    persist__chunk_base_msg_read_v234 \
+    persist__chunk_base_msg_read_v56 \
+    persist__chunk_client_msg_read_v56 \
+    persist__chunk_client_read_v56 \
+    persist__chunk_sub_read_v56 \
+    phr_decode_chunked \
+    phr_parse_headers \
+    phr_parse_request \
+    phr_parse_response \
+    plugin__handle_message_single \
+    property__process_publish \
+    property__process_will \
+    property__read_all \
+    proxy_v1__decode \
+    proxy_v2__read \
+    psk__file_parse \
+    pw__decode_sha512 \
+    pwfile__parse \
+    pwfile_iterate \
+    send__connect \
+    send__publish \
+    send__real_publish \
+    send__unsubscribe \
+    sub__messages_queue \
+    sub__remove \
+    topic_matches_sub \
+    will__set \
+    ws__prepare_packet
+
+LOCAL_CPPFLAGS+=-I${R}/include/ -I${R}/src -I${R}/lib -I${R} -I${R}/common -I${R}/deps \
+	-DWITH_BRIDGE -DWITH_BROKER -DWITH_CONTROL -DWITH_EPOLL \
+	-DWITH_MEMORY_TRACKING -DWITH_PERSISTENCE -DWITH_SOCKS -DWITH_SYSTEMD \
+	-DWITH_SYS_TREE -DWITH_TLS -DWITH_TLS_PSK -DWITH_UNIX_SOCKETS -DWITH_WEBSOCKETS=WS_IS_BUILTIN
+LOCAL_CXXFLAGS+=-g -Wall -Werror -pthread
+LOCAL_CFLAGS+=-g -Wall -Werror -pthread
+LOCAL_LDFLAGS+=
+LOCAL_LIBADD+=$(LIB_FUZZING_ENGINE) -lssl -lcrypto -lcjson -lm ${R}/libcommon/libmosquitto_common.a -Wl,-Bdynamic -Wl,-Bstatic -largon2 -Wl,-Bdynamic
+BROKER_A=${R}/src/mosquitto_broker.a
+
+PACKET_FUZZERS:= \
+	mosquitto_loop_write \
+	sub__topic_tokenise \
+	broker_fuzz_handle_auth \
+	broker_fuzz_handle_connect \
+	broker_fuzz_handle_publish \
+	broker_fuzz_handle_subscribe \
+	broker_fuzz_handle_unsubscribe
+
+all: $(FUZZERS) $(PACKET_FUZZERS)
+
+${PACKET_FUZZERS} : %: %.cpp fuzz_packet_read_base.o ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< fuzz_packet_read_base.o  $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+fuzz_packet_read_base.o : fuzz_packet_read_base.c
+	$(CC) $(LOCAL_CFLAGS) $(LOCAL_CPPFLAGS) -c -o $@ $<
+
+broker_fuzz_acl_file : broker_fuzz_acl_file.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_acl_file_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+	cp ${R}/fuzzing/corpora/broker_acl_file.dict ${OUT}/$@.dict
+
+broker_fuzz_password_file : broker_fuzz_password_file.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_password_file_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+
+broker_fuzz_proxy_v1 : broker_fuzz_proxy_v1.cpp ${R}/src/proxy_v1.o
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< ${R}/src/proxy_v1.o $(LOCAL_LIBADD)
+	cp ${R}/fuzzing/corpora/broker_fuzz_proxy_v1_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+	install $@ ${OUT}/$@
+
+broker_fuzz_proxy_v2 : broker_fuzz_proxy_v2.cpp ${R}/src/proxy_v2.o
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< ${R}/src/proxy_v2.o $(LOCAL_LIBADD)
+	cp ${R}/fuzzing/corpora/broker_fuzz_proxy_v2_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+	install $@ ${OUT}/$@
+
+broker_fuzz_psk_file : broker_fuzz_psk_file.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_psk_file_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+
+broker_fuzz_queue_msg : broker_fuzz_queue_msg.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_queue_msg_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+
+broker_fuzz_read_handle : broker_fuzz_read_handle.cpp fuzz_packet_read_base.o ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $^ $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_packet_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+
+broker_fuzz_test_config : broker_fuzz_test_config.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+	cp ${R}/fuzzing/corpora/broker_fuzz_test_config_seed_corpus.zip ${OUT}/$@_seed_corpus.zip
+	cp ${R}/fuzzing/corpora/broker_conf.dict ${OUT}/$@.dict
+
+acl_file__check : acl_file__check.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+acl_file__cleanup : acl_file__cleanup.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+acl_file__parse : acl_file__parse.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+bridge__add_topic : bridge__add_topic.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+bridge__remap_topic_in : bridge__remap_topic_in.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+config__get_dir_files : config__get_dir_files.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+config__parse_args : config__parse_args.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+connect__on_authorised : connect__on_authorised.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+control__register_callback : control__register_callback.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+db__messages_delete : db__messages_delete.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+db__ready_for_flight : db__ready_for_flight.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+db__ready_for_queue : db__ready_for_queue.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+get_token_to_eol : get_token_to_eol.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__connack_properties : handle__connack_properties.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__disconnect : handle__disconnect.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__packet : handle__packet.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__pubackcomp : handle__pubackcomp.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__pubrel : handle__pubrel.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__subscribe : handle__subscribe.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+handle__unsubscribe : handle__unsubscribe.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_properties_to_json : mosquitto_properties_to_json.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_property_check_all : mosquitto_property_check_all.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_property_check_command : mosquitto_property_check_command.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_psk_key_get_default : mosquitto_psk_key_get_default.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_pw_decode : mosquitto_pw_decode.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_read_file : mosquitto_read_file.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+mosquitto_write_file : mosquitto_write_file.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+net__init_ssl_ctx : net__init_ssl_ctx.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+net__try_connect_tcp : net__try_connect_tcp.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+packet__read_string : packet__read_string.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+parse_request : parse_request.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+parse_response : parse_response.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+password_file__parse : password_file__parse.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+persist__chunk_base_msg_read_v234 : persist__chunk_base_msg_read_v234.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+persist__chunk_base_msg_read_v56 : persist__chunk_base_msg_read_v56.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+persist__chunk_client_msg_read_v56 : persist__chunk_client_msg_read_v56.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+persist__chunk_client_read_v56 : persist__chunk_client_read_v56.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+persist__chunk_sub_read_v56 : persist__chunk_sub_read_v56.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+phr_decode_chunked : phr_decode_chunked.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+phr_parse_headers : phr_parse_headers.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+phr_parse_request : phr_parse_request.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+phr_parse_response : phr_parse_response.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+plugin__handle_message_single : plugin__handle_message_single.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+property__process_publish : property__process_publish.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+property__process_will : property__process_will.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+property__read_all : property__read_all.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+proxy_v1__decode : proxy_v1__decode.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+proxy_v2__read : proxy_v2__read.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+psk__file_parse : psk__file_parse.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+pw__decode_sha512 : pw__decode_sha512.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+pwfile__parse : pwfile__parse.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+pwfile_iterate : pwfile_iterate.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+send__connect : send__connect.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+send__publish : send__publish.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+send__real_publish : send__real_publish.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+send__unsubscribe : send__unsubscribe.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+sub__messages_queue : sub__messages_queue.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+sub__remove : sub__remove.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+topic_matches_sub : topic_matches_sub.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+will__set : will__set.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+ws__prepare_packet : ws__prepare_packet.cpp ${R}/src/mosquitto_broker.a
+	$(CXX) $(LOCAL_CXXFLAGS) $(LOCAL_CPPFLAGS) $(LOCAL_LDFLAGS) -o $@ $< $(BROKER_A) $(LOCAL_LIBADD)
+	install $@ ${OUT}/$@
+
+
+clean:
+	rm -f *.o $(FUZZERS) $(PACKET_FUZZERS)
