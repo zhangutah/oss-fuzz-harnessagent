@@ -23,7 +23,11 @@ RUN sed -i 's|/src/libprotobuf-mutator/external.protobuf/bin/protoc|${SRC}/LPM/e
 # Get dependencies
 RUN $SRC/mosquitto/fuzzing/scripts/oss-fuzz-dependencies.sh
 COPY fuzzers/broker/*.cpp $SRC/mosquitto/fuzzing/broker/
+COPY fuzzers/plugins/dynamic-security/*.cpp $SRC/mosquitto/fuzzing/plugins/dynamic-security/
+COPY fuzzers/libcommon/*.cpp $SRC/mosquitto/fuzzing/libcommon/
 COPY Makefile.broker $SRC/mosquitto/fuzzing/broker/Makefile
+COPY Makefile.dynamic-security $SRC/mosquitto/fuzzing/plugins/dynamic-security/Makefile
+COPY Makefile.libcommon $SRC/mosquitto/fuzzing/libcommon/Makefile
 
 WORKDIR $SRC/mosquitto
 COPY build.sh $SRC/
